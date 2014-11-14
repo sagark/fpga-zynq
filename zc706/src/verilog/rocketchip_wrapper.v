@@ -23,12 +23,18 @@ module rocketchip_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-`ifndef differential_clock
-    clk);
-`else
-    SYSCLK_P,
-    SYSCLK_N);
-`endif
+
+    sfp_txp,
+    sfp_txn,
+    sfp_rxp,
+    sfp_rxn,
+    sfp_tx_disable,
+    sfp_125_clk_p,
+    sfp_125_clk_n,
+    sfp_link_status,
+    clk125_heartbeat,
+    clk_200_p,
+    clk_200_n);
 
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
@@ -53,12 +59,17 @@ module rocketchip_wrapper
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
 
-`ifndef differential_clock
-  input clk;
-`else
-  input SYSCLK_P;
-  input SYSCLK_N;
-`endif
+  output sfp_txp;
+  output sfp_txn;
+  input sfp_rxp;
+  input sfp_rxn;
+  output sfp_tx_disable;
+  input sfp_125_clk_p;
+  input sfp_125_clk_n;
+  output sfp_link_status;
+  output clk125_heartbeat;
+  input clk_200_p;
+  input clk_200_n;
 
   wire FCLK_RESET0_N;
   
@@ -131,7 +142,88 @@ module rocketchip_wrapper
   wire host_in_valid, host_in_ready, host_out_ready, host_out_valid;
   wire [15:0] host_in_bits, host_out_bits;
   wire host_clk;
-  wire gclk_i, gclk_fbout, host_clk_i, mmcm_locked;
+  wire gclk_fbout, host_clk_i, mmcm_locked;
+
+  wire sfp_txp;
+  wire sfp_txn;
+  wire sfp_rxp;
+  wire sfp_rxn;
+  wire sfp_tx_disable;
+  wire sfp_125_clk_p;
+  wire sfp_125_clk_n;
+  wire sfp_link_status;
+  wire clk125_heartbeat;
+  wire clk_200_p;
+  wire clk_200_n;
+
+ 
+  wire userclk2;
+   wire gtrefclk; 
+
+    wire REF_CLK;
+    wire GTX_CLK;
+    wire PHY_RST_N;
+    wire MII_TX_CLK;
+    wire [7:0] GMII_TXD;
+    wire GMII_TX_EN;
+    wire GMII_TX_ER;
+    wire GMII_TX_CLK;
+    wire [7:0] GMII_RXD;
+    wire GMII_RX_DV;
+    wire GMII_RX_ER;
+    wire GMII_COL;
+    wire GMII_CRS;
+    wire MDC;
+    wire MDIO_I;
+    wire MDIO_O;
+
+    reg [7:0] GMII_TXD_reg;
+    reg GMII_TX_EN_reg;
+    reg GMII_TX_ER_reg;
+    reg [7:0] GMII_RXD_reg;
+    reg GMII_RX_DV_reg;
+    reg GMII_RX_ER_reg;
+    reg [15:0] status_vector = 16'd0;
+
+    wire [15:0] status_vector_int;
+
+    wire FCLK_CLK0;
+    wire FCLK_RESET0_N;
+
+    wire userclk;
+
+    wire clk_200;
+    wire clk_200_bufg;
+    
+    assign sfp_tx_disable = 1'b0;
+    assign sfp_link_status = status_vector[0];
+    
+    IBUFDS diff_clk_200 (
+        .I (clk_200_p),
+        .IB (clk_200_n),
+        .O (clk_200)
+    );
+
+    BUFG clk200_bufg (
+        .I (clk_200),
+        .O (clk_200_bufg)
+    );
+
+    reg [23:0] clk125_counter = 24'd0;
+
+    always @(posedge userclk2)
+        clk125_counter <= clk125_counter + 1'b1;
+
+    assign clk125_heartbeat = clk125_counter[23];
+
+    assign GTX_CLK_in = userclk2;
+    assign REF_CLK_in = userclk2;
+
+
+
+
+
+
 
   system system_i
        (.DDR_addr(DDR_addr),
@@ -149,6 +241,8 @@ module rocketchip_wrapper
         .DDR_ras_n(DDR_ras_n),
         .DDR_reset_n(DDR_reset_n),
         .DDR_we_n(DDR_we_n),
+        .ENET1_EXT_INTIN(ENET1_EXT_INTIN), // TODO?
+        .FCLK_CLK0(FCLK_CLK0),
         .FCLK_RESET0_N(FCLK_RESET0_N),
         .FIXED_IO_ddr_vrn(FIXED_IO_ddr_vrn),
         .FIXED_IO_ddr_vrp(FIXED_IO_ddr_vrp),
@@ -245,7 +339,33 @@ module rocketchip_wrapper
         .S_AXI_wready(S_AXI_wready),
         .S_AXI_wstrb(8'hff),
         .S_AXI_wvalid(S_AXI_wvalid),
-        .ext_clk_in(host_clk)
+        .ext_clk_in(host_clk),
+
+        .GMII_ETHERNET_1_col(1'b0),
+        .GMII_ETHERNET_1_crs(1'b1),
+        .GMII_ETHERNET_1_rx_clk(userclk2),
+        .GMII_ETHERNET_1_rx_dv(GMII_RX_DV_reg),
+        .GMII_ETHERNET_1_rx_er(GMII_RX_ER_reg),
+        .GMII_ETHERNET_1_rxd(GMII_RXD_reg),
+
+        .GMII_ETHERNET_1_tx_clk(userclk2),
+        .GMII_ETHERNET_1_tx_en(GMII_TX_EN),
+        .GMII_ETHERNET_1_tx_er(GMII_TX_ER),
+        .GMII_ETHERNET_1_txd(GMII_TXD),
+        .MDIO_ETHERNET_1_mdc(MDC),
+        .MDIO_ETHERNET_1_mdio_i(MDIO_O),
+        .MDIO_ETHERNET_1_mdio_o(MDIO_I),
+        .MDIO_ETHERNET_1_mdio_t(),
+        .PTP_ETHERNET_1_delay_req_rx(),
+        .PTP_ETHERNET_1_delay_req_tx(),
+        .PTP_ETHERNET_1_pdelay_req_rx(),
+        .PTP_ETHERNET_1_pdelay_req_tx(),
+        .PTP_ETHERNET_1_pdelay_resp_rx(),
+        .PTP_ETHERNET_1_pdelay_resp_tx(),
+        .PTP_ETHERNET_1_sof_rx(),
+        .PTP_ETHERNET_1_sof_tx(),
+        .PTP_ETHERNET_1_sync_frame_rx(),
+        .PTP_ETHERNET_1_sync_frame_tx()
         );
 
 `define DCOUNT_ADDR 5'h00
@@ -394,7 +514,6 @@ module rocketchip_wrapper
   parameter st_READ = 2'b01;
   parameter st_START_WRITE = 2'b10;
   parameter st_WRITE = 2'b11;
-//  parameter st_WRITE_ACK = 3'b100;
 
   reg [1:0] state_r = st_IDLE; // for poweron global set/reset
   reg [2:0] write_count = 3'd0;
@@ -438,17 +557,9 @@ module rocketchip_wrapper
               begin
                  write_count <= write_count + 1;
                  if (write_count == 3'd7)
-//                    state_r <= st_WRITE_ACK;
                     state_r <= st_IDLE;
               end
            end
-//           st_WRITE_ACK : begin
-//              if (S_AXI_bvalid)
-//                 state_r <= st_IDLE;
-//           end
-//           default : begin  // Fault Recovery
-//              <state> <= <state1>;
-//           end   
         endcase
   end
   
@@ -466,19 +577,6 @@ module rocketchip_wrapper
   assign S_AXI_wdata = write_count[0] ? mem_req_data_bits[127:64] : mem_req_data_bits[63:0];
   assign S_AXI_bready = 1'b1; //(state_r == st_WRITE_ACK);
   
-/*
-  fifo_8x5 tag_queue (
-    .clk(host_clk),
-    .reset(reset),
-    .din(mem_req_tag),
-    .wren(S_AXI_arvalid & S_AXI_arready),
-    .rden(S_AXI_rlast_r),
-    .dout(mem_resp_tag),
-    .full(),
-    .empty()
-  );
-*/
-
   assign S_AXI_arid = {1'b0, mem_req_tag};
   assign S_AXI_awid = 6'd0;
   assign mem_resp_tag = S_AXI_rid[4:0];
@@ -508,11 +606,8 @@ module rocketchip_wrapper
        .io_mem_resp_bits_data( {S_AXI_rdata, mem_resp_data_buf} ),
        .io_mem_resp_bits_tag( mem_resp_tag )
   );
-`ifndef differential_clock
-  IBUFG ibufg_gclk (.I(clk), .O(gclk_i));
-`else
-  IBUFDS #(.DIFF_TERM("TRUE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")) clk_ibufds (.O(gclk_i), .I(SYSCLK_P), .IB(SYSCLK_N));
-`endif
+
+
   BUFG  bufg_host_clk (.I(host_clk_i), .O(host_clk));
 
   MMCME2_BASE #(
@@ -560,68 +655,91 @@ module rocketchip_wrapper
     .CLKFBOUT(gclk_fbout),
     .CLKFBOUTB(),
     .LOCKED(mmcm_locked),
-    .CLKIN1(gclk_i),
+    .CLKIN1(clk_200),
     .PWRDWN(1'b0),
     .RST(1'b0),
     .CLKFBIN(gclk_fbout));
 
+
+
+
+
+       gig_ethernet_pcs_pma_0 core_wrapper (
+              // Transceiver Interface
+              //----------------------
+              .gtrefclk_p(sfp_125_clk_p),                // 125 MHz differential clock
+              .gtrefclk_n(sfp_125_clk_n),                // 125 MHz differential clock
+              .gtrefclk_out(gtrefclk),              // Very high quality 125MHz clock for GT transceiver.
+              
+              .txp(sfp_txp),                   // Differential +ve of serial transmission from PMA to PMD.
+              .txn(sfp_txn),                   // Differential -ve of serial transmission from PMA to PMD.
+              .rxp(sfp_rxp),                   // Differential +ve for serial reception from PMD to PMA.
+              .rxn(sfp_rxn),                   // Differential -ve for serial reception from PMD to PMA.
+              .resetdone(),                 // The GT transceiver has completed its reset cycle
+              .userclk_out(userclk),               // 125MHz global clock.
+              .userclk2_out(userclk2),              // 125MHz global clock.
+              .rxuserclk_out(),               // 125MHz global clock.
+              .rxuserclk2_out(),              // 125MHz global clock.
+              .independent_clock_bufg(clk_200_bufg),// 200MHz Independent clock,
+              .pma_reset_out(),             // transceiver PMA reset signal
+              .mmcm_locked_out(),           // MMCM Locked
+              // GMII Interface
+              //---------------
+              .gmii_txd(GMII_TXD_reg),              // Transmit data from client MAC.
+              .gmii_tx_en(GMII_TX_EN_reg),            // Transmit control signal from client MAC.
+              .gmii_tx_er(GMII_TX_ER_reg),            // Transmit control signal from client MAC.
+              .gmii_rxd(GMII_RXD),              // Received Data to client MAC.
+              .gmii_rx_dv(GMII_RX_DV),            // Received control signal to client MAC.
+              .gmii_rx_er(GMII_RX_ER),            // Received control signal to client MAC.
+              .gmii_isolate(),          // Tristate control to electrically isolate GMII.
+        
+              // Management: MDIO Interface
+              //---------------------------
+        
+              .mdc(MDC),                   // Management Data Clock
+              .mdio_i(MDIO_I),                // Management Data In
+              .mdio_o(MDIO_O),                // Management Data Out
+              .mdio_t(),                // Management Data Tristate
+              .configuration_vector(5'd0),  // Alternative to MDIO interface.
+              .configuration_valid(1'b0),   // Validation signal for Config vector
+        
+              .an_interrupt(),          // Interrupt to processor to signal that Auto-Negotiation has completed
+              .an_adv_config_vector(16'b0000_0000_0010_0001),  // Alternate interface to program REG4 (AN ADV)
+              .an_adv_config_val(1'b0),     // Validation signal for AN ADV
+              .an_restart_config(1'b0),     // Alternate signal to modify AN restart bit in REG0
+        
+              // General IO's
+              //-------------
+              .status_vector(status_vector_int),         // Core status.
+              .reset(!FCLK_RESET0_N),                 // Asynchronous reset for entire core
+            
+              .signal_detect(1'b1),          // Input from PMD to indicate presence of optical input.
+              .gt0_qplloutclk_out(),
+              .gt0_qplloutrefclk_out()
+           );
+
+        
+always @(posedge userclk2)
+begin
+    GMII_TXD_reg <= GMII_TXD;
+    GMII_TX_ER_reg <= GMII_TX_ER;
+    GMII_TX_EN_reg <= GMII_TX_EN;
+end
+
+always @(posedge userclk2)
+begin
+    GMII_RXD_reg <= GMII_RXD;
+    GMII_RX_DV_reg <= GMII_RX_DV;
+    GMII_RX_ER_reg <= GMII_RX_ER;
+end
+   
+always @(posedge userclk2)
+begin
+    status_vector <= status_vector_int;
+end
+
+
 endmodule
-
-
-// fifo queues originally from fifos.v
-
-/*
-module fifo_8x5 (
-    input clk,
-    input reset,
-    input wren,
-    input rden,
-    input [4:0] din,
-    output reg empty,
-    output reg full,
-    output [4:0] dout
-    );
-
-  reg [4:0] data [0:7];
-  reg [2:0] raddr, waddr;
-  wire [2:0] waddr_next, raddr_next;
-  wire write = wren && (rden || !full);
-  wire read = rden && !empty;
-
-  assign waddr_next = write ? waddr + 1'b1 : waddr;
-  assign raddr_next = read ? raddr + 1'b1 : raddr;
-  assign dout = data[raddr];
-
-  always @(posedge clk)
-  begin
-    if (reset)
-    begin
-      empty <= 1'b1;
-      full <= 1'b0;
-      raddr <= 3'd0;
-      waddr <= 3'd0;
-    end
-    else
-    begin
-      waddr <= waddr_next;
-      raddr <= raddr_next;
-      if (write)
-        data[waddr] <= din;
-
-      if (read && raddr_next == waddr_next && !full)
-        empty <= 1'b1;
-      else if (write && !read)
-        empty <= 1'b0;
-
-      if (write && raddr_next == waddr_next)
-        full <= 1'b1;
-      else if (read && !write)
-        full <= 1'b0;
-
-    end
-  end
-endmodule
-*/
 
 module fifo_32x32 (
     input clk,

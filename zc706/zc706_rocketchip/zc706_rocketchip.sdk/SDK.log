@@ -1,0 +1,3 @@
+13:07:21 INFO  : Processing command line option -hwspec /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf.
+13:07:57 INFO  : Processing command line option -hwspec /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf.
+13:07:58 INFO  : Checking for hwspec changes in the project rocketchip_wrapper_hw_platform_0.
