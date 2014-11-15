@@ -1,4 +1,4 @@
-13:08:03 **** Build of configuration Debug for project FSBL ****
+19:08:28 **** Build of configuration Debug for project FSBL ****
 make all 
 Building file: ../src/ddr_init.c
 Invoking: ARM gcc compiler
@@ -73,9 +73,9 @@ Finished building target: FSBL.elf
 Invoking: ARM Print Size
 arm-xilinx-eabi-size FSBL.elf  |tee "FSBL.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  72704	  11700	  73332	 157736	  26828	FSBL.elf
+  72704	  11604	  73332	 157640	  267c8	FSBL.elf
 Finished building: FSBL.elf.size
  
 
-13:08:04 Build Finished (took 1s.316ms)
+19:08:29 Build Finished (took 1s.418ms)
 

@@ -1,7 +1,7 @@
 //Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-//Date        : Fri Nov 14 12:49:03 2014
+//Date        : Fri Nov 14 18:35:04 2014
 //Host        : a8 running 64-bit Ubuntu 14.04.1 LTS
 //Command     : generate_target system_wrapper.bd
 //Design      : system_wrapper
@@ -25,7 +25,6 @@ module system_wrapper
     DDR_ras_n,
     DDR_reset_n,
     DDR_we_n,
-    ENET1_EXT_INTIN,
     FCLK_CLK0,
     FCLK_RESET0_N,
     FIXED_IO_ddr_vrn,
@@ -34,17 +33,6 @@ module system_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    GMII_ETHERNET_1_col,
-    GMII_ETHERNET_1_crs,
-    GMII_ETHERNET_1_rx_clk,
-    GMII_ETHERNET_1_rx_dv,
-    GMII_ETHERNET_1_rx_er,
-    GMII_ETHERNET_1_rxd,
-    GMII_ETHERNET_1_tx_clk,
-    GMII_ETHERNET_1_tx_en,
-    GMII_ETHERNET_1_tx_er,
-    GMII_ETHERNET_1_txd,
-    MDIO_ETHERNET_1_mdc,
     M_AXI_araddr,
     M_AXI_arburst,
     M_AXI_arcache,
@@ -84,16 +72,6 @@ module system_wrapper
     M_AXI_wready,
     M_AXI_wstrb,
     M_AXI_wvalid,
-    PTP_ETHERNET_1_delay_req_rx,
-    PTP_ETHERNET_1_delay_req_tx,
-    PTP_ETHERNET_1_pdelay_req_rx,
-    PTP_ETHERNET_1_pdelay_req_tx,
-    PTP_ETHERNET_1_pdelay_resp_rx,
-    PTP_ETHERNET_1_pdelay_resp_tx,
-    PTP_ETHERNET_1_sof_rx,
-    PTP_ETHERNET_1_sof_tx,
-    PTP_ETHERNET_1_sync_frame_rx,
-    PTP_ETHERNET_1_sync_frame_tx,
     S_AXI_araddr,
     S_AXI_arburst,
     S_AXI_arcache,
@@ -133,8 +111,7 @@ module system_wrapper
     S_AXI_wready,
     S_AXI_wstrb,
     S_AXI_wvalid,
-    ext_clk_in,
-    mdio_ethernet_1_mdio_io);
+    ext_clk_in);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -150,7 +127,6 @@ module system_wrapper
   inout DDR_ras_n;
   inout DDR_reset_n;
   inout DDR_we_n;
-  input ENET1_EXT_INTIN;
   output FCLK_CLK0;
   output FCLK_RESET0_N;
   inout FIXED_IO_ddr_vrn;
@@ -159,17 +135,6 @@ module system_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  input GMII_ETHERNET_1_col;
-  input GMII_ETHERNET_1_crs;
-  input GMII_ETHERNET_1_rx_clk;
-  input GMII_ETHERNET_1_rx_dv;
-  input GMII_ETHERNET_1_rx_er;
-  input [7:0]GMII_ETHERNET_1_rxd;
-  input GMII_ETHERNET_1_tx_clk;
-  output [0:0]GMII_ETHERNET_1_tx_en;
-  output [0:0]GMII_ETHERNET_1_tx_er;
-  output [7:0]GMII_ETHERNET_1_txd;
-  output MDIO_ETHERNET_1_mdc;
   output [31:0]M_AXI_araddr;
   output [1:0]M_AXI_arburst;
   output [3:0]M_AXI_arcache;
@@ -209,16 +174,6 @@ module system_wrapper
   input M_AXI_wready;
   output [3:0]M_AXI_wstrb;
   output M_AXI_wvalid;
-  output PTP_ETHERNET_1_delay_req_rx;
-  output PTP_ETHERNET_1_delay_req_tx;
-  output PTP_ETHERNET_1_pdelay_req_rx;
-  output PTP_ETHERNET_1_pdelay_req_tx;
-  output PTP_ETHERNET_1_pdelay_resp_rx;
-  output PTP_ETHERNET_1_pdelay_resp_tx;
-  output PTP_ETHERNET_1_sof_rx;
-  output PTP_ETHERNET_1_sof_tx;
-  output PTP_ETHERNET_1_sync_frame_rx;
-  output PTP_ETHERNET_1_sync_frame_tx;
   input [31:0]S_AXI_araddr;
   input [1:0]S_AXI_arburst;
   input [3:0]S_AXI_arcache;
@@ -259,7 +214,6 @@ module system_wrapper
   input [7:0]S_AXI_wstrb;
   input S_AXI_wvalid;
   input ext_clk_in;
-  inout mdio_ethernet_1_mdio_io;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -276,7 +230,6 @@ module system_wrapper
   wire DDR_ras_n;
   wire DDR_reset_n;
   wire DDR_we_n;
-  wire ENET1_EXT_INTIN;
   wire FCLK_CLK0;
   wire FCLK_RESET0_N;
   wire FIXED_IO_ddr_vrn;
@@ -285,17 +238,6 @@ module system_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
-  wire GMII_ETHERNET_1_col;
-  wire GMII_ETHERNET_1_crs;
-  wire GMII_ETHERNET_1_rx_clk;
-  wire GMII_ETHERNET_1_rx_dv;
-  wire GMII_ETHERNET_1_rx_er;
-  wire [7:0]GMII_ETHERNET_1_rxd;
-  wire GMII_ETHERNET_1_tx_clk;
-  wire [0:0]GMII_ETHERNET_1_tx_en;
-  wire [0:0]GMII_ETHERNET_1_tx_er;
-  wire [7:0]GMII_ETHERNET_1_txd;
-  wire MDIO_ETHERNET_1_mdc;
   wire [31:0]M_AXI_araddr;
   wire [1:0]M_AXI_arburst;
   wire [3:0]M_AXI_arcache;
@@ -335,16 +277,6 @@ module system_wrapper
   wire M_AXI_wready;
   wire [3:0]M_AXI_wstrb;
   wire M_AXI_wvalid;
-  wire PTP_ETHERNET_1_delay_req_rx;
-  wire PTP_ETHERNET_1_delay_req_tx;
-  wire PTP_ETHERNET_1_pdelay_req_rx;
-  wire PTP_ETHERNET_1_pdelay_req_tx;
-  wire PTP_ETHERNET_1_pdelay_resp_rx;
-  wire PTP_ETHERNET_1_pdelay_resp_tx;
-  wire PTP_ETHERNET_1_sof_rx;
-  wire PTP_ETHERNET_1_sof_tx;
-  wire PTP_ETHERNET_1_sync_frame_rx;
-  wire PTP_ETHERNET_1_sync_frame_tx;
   wire [31:0]S_AXI_araddr;
   wire [1:0]S_AXI_arburst;
   wire [3:0]S_AXI_arcache;
@@ -385,16 +317,7 @@ module system_wrapper
   wire [7:0]S_AXI_wstrb;
   wire S_AXI_wvalid;
   wire ext_clk_in;
-  wire mdio_ethernet_1_mdio_i;
-  wire mdio_ethernet_1_mdio_io;
-  wire mdio_ethernet_1_mdio_o;
-  wire mdio_ethernet_1_mdio_t;
 
-IOBUF mdio_ethernet_1_mdio_iobuf
-       (.I(mdio_ethernet_1_mdio_o),
-        .IO(mdio_ethernet_1_mdio_io),
-        .O(mdio_ethernet_1_mdio_i),
-        .T(mdio_ethernet_1_mdio_t));
 system system_i
        (.DDR_addr(DDR_addr),
         .DDR_ba(DDR_ba),
@@ -411,7 +334,6 @@ system system_i
         .DDR_ras_n(DDR_ras_n),
         .DDR_reset_n(DDR_reset_n),
         .DDR_we_n(DDR_we_n),
-        .ENET1_EXT_INTIN(ENET1_EXT_INTIN),
         .FCLK_CLK0(FCLK_CLK0),
         .FCLK_RESET0_N(FCLK_RESET0_N),
         .FIXED_IO_ddr_vrn(FIXED_IO_ddr_vrn),
@@ -420,20 +342,6 @@ system system_i
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .GMII_ETHERNET_1_col(GMII_ETHERNET_1_col),
-        .GMII_ETHERNET_1_crs(GMII_ETHERNET_1_crs),
-        .GMII_ETHERNET_1_rx_clk(GMII_ETHERNET_1_rx_clk),
-        .GMII_ETHERNET_1_rx_dv(GMII_ETHERNET_1_rx_dv),
-        .GMII_ETHERNET_1_rx_er(GMII_ETHERNET_1_rx_er),
-        .GMII_ETHERNET_1_rxd(GMII_ETHERNET_1_rxd),
-        .GMII_ETHERNET_1_tx_clk(GMII_ETHERNET_1_tx_clk),
-        .GMII_ETHERNET_1_tx_en(GMII_ETHERNET_1_tx_en),
-        .GMII_ETHERNET_1_tx_er(GMII_ETHERNET_1_tx_er),
-        .GMII_ETHERNET_1_txd(GMII_ETHERNET_1_txd),
-        .MDIO_ETHERNET_1_mdc(MDIO_ETHERNET_1_mdc),
-        .MDIO_ETHERNET_1_mdio_i(mdio_ethernet_1_mdio_i),
-        .MDIO_ETHERNET_1_mdio_o(mdio_ethernet_1_mdio_o),
-        .MDIO_ETHERNET_1_mdio_t(mdio_ethernet_1_mdio_t),
         .M_AXI_araddr(M_AXI_araddr),
         .M_AXI_arburst(M_AXI_arburst),
         .M_AXI_arcache(M_AXI_arcache),
@@ -473,16 +381,6 @@ system system_i
         .M_AXI_wready(M_AXI_wready),
         .M_AXI_wstrb(M_AXI_wstrb),
         .M_AXI_wvalid(M_AXI_wvalid),
-        .PTP_ETHERNET_1_delay_req_rx(PTP_ETHERNET_1_delay_req_rx),
-        .PTP_ETHERNET_1_delay_req_tx(PTP_ETHERNET_1_delay_req_tx),
-        .PTP_ETHERNET_1_pdelay_req_rx(PTP_ETHERNET_1_pdelay_req_rx),
-        .PTP_ETHERNET_1_pdelay_req_tx(PTP_ETHERNET_1_pdelay_req_tx),
-        .PTP_ETHERNET_1_pdelay_resp_rx(PTP_ETHERNET_1_pdelay_resp_rx),
-        .PTP_ETHERNET_1_pdelay_resp_tx(PTP_ETHERNET_1_pdelay_resp_tx),
-        .PTP_ETHERNET_1_sof_rx(PTP_ETHERNET_1_sof_rx),
-        .PTP_ETHERNET_1_sof_tx(PTP_ETHERNET_1_sof_tx),
-        .PTP_ETHERNET_1_sync_frame_rx(PTP_ETHERNET_1_sync_frame_rx),
-        .PTP_ETHERNET_1_sync_frame_tx(PTP_ETHERNET_1_sync_frame_tx),
         .S_AXI_araddr(S_AXI_araddr),
         .S_AXI_arburst(S_AXI_arburst),
         .S_AXI_arcache(S_AXI_arcache),

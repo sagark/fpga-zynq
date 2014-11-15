@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-| Date         : Fri Nov 14 12:57:39 2014
+| Date         : Fri Nov 14 18:57:56 2014
 | Host         : a8 running 64-bit Ubuntu 14.04.1 LTS
 | Command      : report_utilization -file rocketchip_wrapper_utilization_synth.rpt -pb rocketchip_wrapper_utilization_synth.pb
 | Design       : rocketchip_wrapper
@@ -29,16 +29,16 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 32088 |     0 |    218600 | 14.67 |
-|   LUT as Logic             | 30765 |     0 |    218600 | 14.07 |
+| Slice LUTs*                | 32107 |     0 |    218600 | 14.68 |
+|   LUT as Logic             | 30784 |     0 |    218600 | 14.08 |
 |   LUT as Memory            |  1323 |     0 |     70400 |  1.87 |
 |     LUT as Distributed RAM |  1320 |     0 |           |       |
 |     LUT as Shift Register  |     3 |     0 |           |       |
-| Slice Registers            | 19825 |     0 |    437200 |  4.53 |
-|   Register as Flip Flop    | 19825 |     0 |    437200 |  4.53 |
+| Slice Registers            | 19944 |     0 |    437200 |  4.56 |
+|   Register as Flip Flop    | 19944 |     0 |    437200 |  4.56 |
 |   Register as Latch        |     0 |     0 |    437200 |  0.00 |
-| F7 Muxes                   |  1591 |     0 |    109300 |  1.45 |
-| F8 Muxes                   |    32 |     0 |     54650 |  0.05 |
+| F7 Muxes                   |  1614 |     0 |    109300 |  1.47 |
+| F8 Muxes                   |    39 |     0 |     54650 |  0.07 |
 +----------------------------+-------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -49,9 +49,9 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Fixed | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |   18 |     0 |       545 |  3.30 |
-|   RAMB36/FIFO*    |   15 |     0 |       545 |  2.75 |
-|     RAMB36E1 only |   15 |       |           |       |
+| Block RAM Tile    |   19 |     0 |       545 |  3.48 |
+|   RAMB36/FIFO*    |   16 |     0 |       545 |  2.93 |
+|     RAMB36E1 only |   16 |       |           |       |
 |   RAMB18          |    6 |     0 |      1090 |  0.55 |
 |     RAMB18E1 only |    6 |       |           |       |
 +-------------------+------+-------+-----------+-------+
@@ -136,23 +136,23 @@ Table of Contents
 +------------+-------+----------------------+
 |  Ref Name  |  Used |  Functional Category |
 +------------+-------+----------------------+
-| FDRE       | 19525 |         Flop & Latch |
-| LUT6       | 18635 |                  LUT |
-| LUT3       |  5427 |                  LUT |
-| LUT5       |  4556 |                  LUT |
-| LUT4       |  4151 |                  LUT |
+| FDRE       | 19639 |         Flop & Latch |
+| LUT6       | 18519 |                  LUT |
+| LUT3       |  5536 |                  LUT |
+| LUT5       |  4542 |                  LUT |
+| LUT4       |  4193 |                  LUT |
+| LUT2       |  2005 |                  LUT |
 | RAMD32     |  1966 |   Distributed Memory |
-| LUT2       |  1957 |                  LUT |
-| MUXF7      |  1591 |                MuxFx |
-| CARRY4     |   711 |           CarryLogic |
+| MUXF7      |  1614 |                MuxFx |
+| CARRY4     |   724 |           CarryLogic |
 | RAMS32     |   654 |   Distributed Memory |
-| LUT1       |   401 |                  LUT |
+| LUT1       |   419 |                  LUT |
 | FDSE       |   201 |         Flop & Latch |
 | BIBUF      |   130 |                   IO |
 | FDCE       |    66 |         Flop & Latch |
-| FDPE       |    33 |         Flop & Latch |
-| MUXF8      |    32 |                MuxFx |
-| RAMB36E1   |    15 |         Block Memory |
+| MUXF8      |    39 |                MuxFx |
+| FDPE       |    38 |         Flop & Latch |
+| RAMB36E1   |    16 |         Block Memory |
 | DSP48E1    |    15 |     Block Arithmetic |
 | RAMD64E    |     8 |   Distributed Memory |
 | RAMB18E1   |     6 |         Block Memory |
@@ -168,11 +168,12 @@ Table of Contents
 8. Black Boxes
 --------------
 
-+------------------------+------+
-|        Ref Name        | Used |
-+------------------------+------+
-| gig_ethernet_pcs_pma_0 |    1 |
-+------------------------+------+
++-------------------------+------+
+|         Ref Name        | Used |
++-------------------------+------+
+| tri_mode_ethernet_mac_0 |    1 |
+| gig_ethernet_pcs_pma_0  |    1 |
++-------------------------+------+
 
 
 9. Instantiated Netlists

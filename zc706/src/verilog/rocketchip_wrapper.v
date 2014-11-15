@@ -72,7 +72,47 @@ module rocketchip_wrapper
   input clk_200_n;
 
   wire FCLK_RESET0_N;
-  
+
+
+wire [7:0] rx_axis_fifo_tdata;
+wire rx_axis_fifo_tvalid;
+wire rx_axis_fifo_tready;
+wire rx_axis_fifo_tlast;
+
+
+wire [7:0] tx_axis_fifo_tdata;
+wire tx_axis_fifo_tvalid;
+wire tx_axis_fifo_tready;
+wire tx_axis_fifo_tlast;
+
+wire [11:0] s_axi_awaddr;
+wire s_axi_awvalid;
+wire s_axi_awready;
+
+wire [31:0] s_axi_wdata;
+wire s_axi_wvalid;
+wire s_axi_wready;
+
+wire [1:0] s_axi_bresp;
+wire s_axi_bvalid;
+wire s_axi_bready;
+
+wire [11:0] s_axi_araddr;
+wire s_axi_arvalid;
+wire s_axi_arready;
+
+wire [31:0] s_axi_data;
+wire [1:0] s_axi_rresp;
+wire s_axi_rvalid;
+wire s_axi_rready;
+
+
+
+
+
+
+
+
   wire [31:0]M_AXI_araddr;
   wire [1:0]M_AXI_arburst;
   wire [7:0]M_AXI_arlen;
@@ -241,7 +281,6 @@ module rocketchip_wrapper
         .DDR_ras_n(DDR_ras_n),
         .DDR_reset_n(DDR_reset_n),
         .DDR_we_n(DDR_we_n),
-        .ENET1_EXT_INTIN(ENET1_EXT_INTIN), // TODO?
         .FCLK_CLK0(FCLK_CLK0),
         .FCLK_RESET0_N(FCLK_RESET0_N),
         .FIXED_IO_ddr_vrn(FIXED_IO_ddr_vrn),
@@ -339,33 +378,8 @@ module rocketchip_wrapper
         .S_AXI_wready(S_AXI_wready),
         .S_AXI_wstrb(8'hff),
         .S_AXI_wvalid(S_AXI_wvalid),
-        .ext_clk_in(host_clk),
+        .ext_clk_in(host_clk)
 
-        .GMII_ETHERNET_1_col(1'b0),
-        .GMII_ETHERNET_1_crs(1'b1),
-        .GMII_ETHERNET_1_rx_clk(userclk2),
-        .GMII_ETHERNET_1_rx_dv(GMII_RX_DV_reg),
-        .GMII_ETHERNET_1_rx_er(GMII_RX_ER_reg),
-        .GMII_ETHERNET_1_rxd(GMII_RXD_reg),
-
-        .GMII_ETHERNET_1_tx_clk(userclk2),
-        .GMII_ETHERNET_1_tx_en(GMII_TX_EN),
-        .GMII_ETHERNET_1_tx_er(GMII_TX_ER),
-        .GMII_ETHERNET_1_txd(GMII_TXD),
-        .MDIO_ETHERNET_1_mdc(MDC),
-        .MDIO_ETHERNET_1_mdio_i(MDIO_O),
-        .MDIO_ETHERNET_1_mdio_o(MDIO_I),
-        .MDIO_ETHERNET_1_mdio_t(),
-        .PTP_ETHERNET_1_delay_req_rx(),
-        .PTP_ETHERNET_1_delay_req_tx(),
-        .PTP_ETHERNET_1_pdelay_req_rx(),
-        .PTP_ETHERNET_1_pdelay_req_tx(),
-        .PTP_ETHERNET_1_pdelay_resp_rx(),
-        .PTP_ETHERNET_1_pdelay_resp_tx(),
-        .PTP_ETHERNET_1_sof_rx(),
-        .PTP_ETHERNET_1_sof_tx(),
-        .PTP_ETHERNET_1_sync_frame_rx(),
-        .PTP_ETHERNET_1_sync_frame_tx()
         );
 
 `define DCOUNT_ADDR 5'h00
@@ -604,7 +618,41 @@ module rocketchip_wrapper
        .io_mem_resp_ready( mem_resp_rdy ),
        .io_mem_resp_valid( mem_resp_val ),
        .io_mem_resp_bits_data( {S_AXI_rdata, mem_resp_data_buf} ),
-       .io_mem_resp_bits_tag( mem_resp_tag )
+       .io_mem_resp_bits_tag( mem_resp_tag ),
+
+
+       // TEMAC connections
+      .io_temac_rx_axis_fifo_tdata(rx_axis_fifo_tdata),
+      .io_temac_rx_axis_fifo_tvalid(rx_axis_fifo_tvalid),
+      .io_temac_rx_axis_fifo_tready(rx_axis_fifo_tready),
+      .io_temac_rx_axis_fifo_tlast(rx_axis_fifo_tlast),
+
+      .io_temac_tx_axis_fifo_tdata(tx_axis_fifo_tdata),
+      .io_temac_tx_axis_fifo_tvalid(tx_axis_fifo_tvalid),
+      .io_temac_tx_axis_fifo_tready(tx_axis_fifo_tready),
+      .io_temac_tx_axis_fifo_tlast(tx_axis_fifo_tlast),
+
+      .io_temac_s_axi_awaddr(s_axi_awaddr),
+      .io_temac_s_axi_awvalid(s_axi_awvalid),
+      .io_temac_s_axi_awready(s_axi_awready),
+
+      .io_temac_s_axi_wdata(s_axi_wdata),
+      .io_temac_s_axi_wvalid(s_axi_wvalid),
+      .io_temac_s_axi_wready(s_axi_wready),
+
+      .io_temac_s_axi_bresp(s_axi_bresp),
+      .io_temac_s_axi_bvalid(s_axi_bvalid),
+      .io_temac_s_axi_bready(s_axi_bready),
+
+      .io_temac_s_axi_araddr(s_axi_araddr),
+      .io_temac_s_axi_arvalid(s_axi_arvalid),
+      .io_temac_s_axi_arready(s_axi_arready),
+
+      .io_temac_s_axi_rdata(s_axi_rdata),
+      .io_temac_s_axi_rresp(s_axi_rresp),
+      .io_temac_s_axi_rvalid(s_axi_rvalid),
+      .io_temac_s_axi_rready(s_axi_rready)
+
   );
 
 
@@ -738,6 +786,103 @@ begin
     status_vector <= status_vector_int;
 end
 
+
+tri_mode_ethernet_mac_0_fifo_block temac0 (
+      .gtx_clk(userclk2),
+      // asynchronous reset
+      .glbl_rstn(FCLK_RESET0_N), // or rocket's reset?
+      .rx_axi_rstn(FCLK_RESET0_N),
+      .tx_axi_rstn(FCLK_RESET0_N),
+
+      // Receiver Statistics Interface all outputs
+      // dont care about this stuff?
+      // TODO: hook up to ILA
+      //---------------------------------------
+      .rx_mac_aclk(), // dont care about this stuff?
+      .rx_reset(),
+      .rx_statistics_vector(), // 28 bits
+      .rx_statistics_valid(),
+
+      // Receiver (AXI-S) Interface
+      //----------------------------------------
+      .rx_fifo_clock(host_clk),
+      .rx_fifo_resetn(FCLK_RESET0_N),
+      .rx_axis_fifo_tdata(rx_axis_fifo_tdata),
+      .rx_axis_fifo_tvalid(rx_axis_fifo_tvalid),
+      .rx_axis_fifo_tready(rx_axis_fifo_tready),
+      .rx_axis_fifo_tlast(rx_axis_fifo_tlast),
+
+
+      // Transmitter Statistics Interface
+      // dont care about this stuff?
+      // TODO: hook up to ILA
+      //------------------------------------------
+      .tx_mac_aclk(),
+      .tx_reset(),
+      .tx_ifg_delay(8'b0), // 8 bit in
+      .tx_statistics_vector(), // 32 bits
+      .tx_statistics_valid(),
+
+
+      // Transmitter (AXI-S) Interface
+      //-------------------------------------------
+      .tx_fifo_clock(host_clk),
+      .tx_fifo_resetn(FCLK_RESET0_N),
+      .tx_axis_fifo_tdata(tx_axis_fifo_tdata),
+      .tx_axis_fifo_tvalid(tx_axis_fifo_tvalid),
+      .tx_axis_fifo_tready(tx_axis_fifo_tready),
+      .tx_axis_fifo_tlast(tx_axis_fifo_tlast),
+
+      // MAC Control Interface
+      // dont care?
+      //------------------------
+      .pause_req(1'b0),
+      .pause_val(16'b0), // 16 bit in
+
+      // GMII Interface
+      //-----------------
+      .gmii_txd(GMII_TXD),
+      .gmii_tx_en(GMII_TX_EN),
+      .gmii_tx_er(GMII_TX_ER),
+      .gmii_rxd(GMII_RXD_reg),
+      .gmii_rx_dv(GMII_RX_DV_reg),
+      .gmii_rx_er(GMII_RX_ER_reg),
+      .speedis100(), // dont care
+      .speedis10100(), // dont care
+
+      // MDIO Interface
+      //-----------------
+      .mdio_i(MDIO_O),
+      .mdio_o(MDIO_I),
+      .mdio_t(), // UNUSED
+      .mdc(MDC),
+
+      // AXI-Lite Interface
+      //---------------
+      .s_axi_aclk(host_clk),
+      .s_axi_resetn(FCLK_RESET0_N),
+
+      .s_axi_awaddr(s_axi_awaddr),
+      .s_axi_awvalid(s_axi_awvalid),
+      .s_axi_awready(s_axi_awready),
+
+      .s_axi_wdata(s_axi_wdata),
+      .s_axi_wvalid(s_axi_wvalid),
+      .s_axi_wready(s_axi_wready),
+
+      .s_axi_bresp(s_axi_bresp),
+      .s_axi_bvalid(s_axi_bvalid),
+      .s_axi_bready(s_axi_bready),
+
+      .s_axi_araddr(s_axi_araddr),
+      .s_axi_arvalid(s_axi_arvalid),
+      .s_axi_arready(s_axi_arready),
+
+      .s_axi_rdata(s_axi_rdata),
+      .s_axi_rresp(s_axi_rresp),
+      .s_axi_rvalid(s_axi_rvalid),
+      .s_axi_rready(s_axi_rready)
+   );
 
 endmodule
 

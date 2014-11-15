@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-| Date         : Fri Nov 14 13:03:56 2014
+| Date         : Fri Nov 14 19:03:45 2014
 | Host         : a8 running 64-bit Ubuntu 14.04.1 LTS
 | Command      : report_drc
 -----------------------------------------------------------------------------------
@@ -84,12 +84,12 @@ Related violations: <none>
 
 DPIP-1#10 Warning
 Input pipelining  
-DSP top/Tile/core/FPU/T146 input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
+DSP top/RocketTile/core/FPU/T146 input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
 Related violations: <none>
 
 DPIP-1#11 Warning
 Input pipelining  
-DSP top/Tile/core/FPU/T146__0 input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
+DSP top/RocketTile/core/FPU/T146__0 input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
 Related violations: <none>
 
 DPOP-1#1 Warning
@@ -139,32 +139,32 @@ Related violations: <none>
 
 DPOP-1#10 Warning
 Output pipelining  
-DSP top/Tile/core/FPU/T146 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP top/RocketTile/core/FPU/T146 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#11 Warning
 Output pipelining  
-DSP top/Tile/core/FPU/T146__0 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP top/RocketTile/core/FPU/T146__0 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#12 Warning
 Output pipelining  
-DSP top/Tile/core/T136 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP top/RocketTile/core/T136 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#13 Warning
 Output pipelining  
-DSP top/Tile/core/T136__0 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP top/RocketTile/core/T136__0 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#14 Warning
 Output pipelining  
-DSP top/Tile/core/T136__1 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP top/RocketTile/core/T136__1 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#15 Warning
 Output pipelining  
-DSP top/Tile/core/T136__2 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP top/RocketTile/core/T136__2 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 PLIO-7#1 Warning
@@ -219,137 +219,137 @@ Related violations: <none>
 
 AVAL-4#10 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-top/Tile/core/FPU/T146: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
+top/RocketTile/core/FPU/T146: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
 Related violations: <none>
 
 AVAL-4#11 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-top/Tile/core/FPU/T146__0: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
+top/RocketTile/core/FPU/T146__0: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
 Related violations: <none>
 
 AVAL-4#12 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-top/Tile/core/T136: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
+top/RocketTile/core/T136: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
 Related violations: <none>
 
 AVAL-4#13 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-top/Tile/core/T136__0: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
+top/RocketTile/core/T136__0: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
 Related violations: <none>
 
 AVAL-4#14 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-top/Tile/core/T136__1: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
+top/RocketTile/core/T136__1: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
 Related violations: <none>
 
 AVAL-4#15 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-top/Tile/core/T136__2: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
+top/RocketTile/core/T136__2: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0', and tie all D inputs to logic '1'.
 Related violations: <none>
 
 REQP-165#1 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/meta/tag_arr/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/meta/tag_arr/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-165#2 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/meta/tag_arr/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/meta/tag_arr/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-165#3 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/meta/tag_arr/ram_reg_2) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/meta/tag_arr/ram_reg_2) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-165#4 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/meta/tag_arr/ram_reg_3) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/meta/tag_arr/ram_reg_3) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-165#5 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/icache/icache/tag_array/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/tag_array/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-165#6 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/icache/icache/tag_array/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/tag_array/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to simulate the design to determine if any possible address collisions could exist in the design.  If so it is suggested to evaluate ways to eliminate the collisions or you may change the write mode to Read First which may reduce some performance and consume more power however will delay the writing thus resolving any potential collisions.  See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#1 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/data/T33/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/data/T33/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#2 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/data/T33/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/data/T33/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#3 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/data/T6/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/data/T6/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#4 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/data/T6/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/data/T6/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#5 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/data/T64/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/data/T64/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#6 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/data/T64/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/data/T64/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#7 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/data/T91/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/data/T91/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#8 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/data/T91/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/data/T91/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#9 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/dcache/mshrs/sdq_reg) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/dcache/mshrs/sdq_reg) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#10 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/icache/icache/T157/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/T157/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#11 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/icache/icache/T157/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/T157/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#12 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/icache/icache/T174/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/T174/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#13 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/Tile/icache/icache/T174/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/T174/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#14 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/uncore/outmemsys/llc/resp_dataq/fq/ram/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/uncore/outmemsys/conv/b/resp_dataq/fq/ram/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#15 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/uncore/outmemsys/llc/resp_dataq/fq/ram/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/uncore/outmemsys/conv/b/resp_dataq/fq/ram/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 

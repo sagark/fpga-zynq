@@ -12,6 +12,8 @@ set_param project.compositeFile.enableAutoGeneration 0
 set_property default_lib xil_defaultlib [current_project]
 add_files -quiet /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/gig_ethernet_pcs_pma_0_synth_1/gig_ethernet_pcs_pma_0.dcp
 set_property used_in_implementation false [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/gig_ethernet_pcs_pma_0_synth_1/gig_ethernet_pcs_pma_0.dcp]
+add_files -quiet /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/tri_mode_ethernet_mac_0_synth_1/tri_mode_ethernet_mac_0.dcp
+set_property used_in_implementation false [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/tri_mode_ethernet_mac_0_synth_1/tri_mode_ethernet_mac_0.dcp]
 read_verilog /scratch/skarandikar/fpga-zynq/zc706/src/verilog/clocking.vh
 
 add_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/system.bd
@@ -26,6 +28,14 @@ set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property is_locked true [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/system.bd]
 
 read_verilog -library xil_defaultlib {
+  /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/fifo/tri_mode_ethernet_mac_0_bram_tdp.v
+  /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/common/tri_mode_ethernet_mac_0_sync_block.v
+  /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/fifo/tri_mode_ethernet_mac_0_tx_client_fifo.v
+  /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/fifo/tri_mode_ethernet_mac_0_rx_client_fifo.v
+  /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/support/tri_mode_ethernet_mac_0_support.v
+  /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/fifo/tri_mode_ethernet_mac_0_ten_100_1g_eth_fifo.v
+  /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/common/tri_mode_ethernet_mac_0_reset_sync.v
+  /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/tri_mode_ethernet_mac_0_fifo_block.v
   /scratch/skarandikar/fpga-zynq/zc706/src/verilog/Top.DefaultFPGAConfig.v
   /scratch/skarandikar/fpga-zynq/zc706/src/verilog/rocketchip_wrapper.v
 }
