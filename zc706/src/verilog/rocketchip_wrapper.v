@@ -859,7 +859,7 @@ tri_mode_ethernet_mac_0_fifo_block temac0 (
 
       // AXI-Lite Interface
       //---------------
-      .s_axi_aclk(host_clk),
+      .s_axi_aclk(host_clk), // this is used to derive MDC based on config
       .s_axi_resetn(FCLK_RESET0_N),
 
       .s_axi_awaddr(s_axi_awaddr),

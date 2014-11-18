@@ -14,3 +14,16 @@
 19:08:18 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper_hw_platform_0/ps7_init.tcl into /FSBL/src/ps7_init.tcl.
 19:08:18 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
 19:09:42 ERROR : Unexpected error while parsing XMD response ￿: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+18:37:50 INFO  : Processing command line option -hwspec /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf.
+18:37:50 INFO  : Checking for hwspec changes in the project rocketchip_wrapper_hw_platform_0.
+18:37:52 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1416105306000,  Project:1416020723000
+18:37:52 INFO  : The hardware specification for project 'rocketchip_wrapper_hw_platform_0' is different from /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf.
+18:37:52 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf into /rocketchip_wrapper_hw_platform_0/system.hdf.
+18:38:02 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+18:38:13 INFO  : 
+18:38:14 INFO  : Updating hardware inferred compiler options for FSBL.
+18:38:14 INFO  : Clearing existing target manager status.
+18:38:15 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper_hw_platform_0/ps7_init.html into /FSBL/src/ps7_init.html.
+18:38:15 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper_hw_platform_0/ps7_init.tcl into /FSBL/src/ps7_init.tcl.
+18:38:15 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+18:38:42 ERROR : Unexpected error while parsing XMD response ￿: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
