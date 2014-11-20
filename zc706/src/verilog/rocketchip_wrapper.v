@@ -101,7 +101,7 @@ wire [11:0] s_axi_araddr;
 wire s_axi_arvalid;
 wire s_axi_arready;
 
-wire [31:0] s_axi_data;
+wire [31:0] s_axi_rdata;
 wire [1:0] s_axi_rresp;
 wire s_axi_rvalid;
 wire s_axi_rready;
@@ -655,6 +655,36 @@ wire s_axi_rready;
 
   );
 
+
+ila_0 main_ila (
+    .clk(host_clk),
+    .trig_in(s_axi_awvalid | tx_axis_fifo_tvalid),
+    .trig_in_ack(),
+    .probe0(rx_axis_fifo_tdata),
+    .probe1(rx_axis_fifo_tvalid),
+    .probe2(rx_axis_fifo_tready),
+    .probe3(rx_axis_fifo_tlast),
+    .probe4(tx_axis_fifo_tdata),
+    .probe5(tx_axis_fifo_tvalid),
+    .probe6(tx_axis_fifo_tready),
+    .probe7(tx_axis_fifo_tlast),
+    .probe8(s_axi_awaddr),
+    .probe9(s_axi_awvalid),
+    .probe10(s_axi_awready),
+    .probe11(s_axi_wdata),
+    .probe12(s_axi_wvalid),
+    .probe13(s_axi_wready),
+    .probe14(s_axi_bresp),
+    .probe15(s_axi_bvalid),
+    .probe16(s_axi_bready),
+    .probe17(s_axi_araddr),
+    .probe18(s_axi_arvalid),
+    .probe19(s_axi_arready),
+    .probe20(s_axi_rdata),
+    .probe21(s_axi_rresp),
+    .probe22(s_axi_rvalid),
+    .probe23(s_axi_rready)
+);
 
   BUFG  bufg_host_clk (.I(host_clk_i), .O(host_clk));
 

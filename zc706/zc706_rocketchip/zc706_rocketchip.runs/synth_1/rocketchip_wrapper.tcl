@@ -14,6 +14,8 @@ add_files -quiet /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_roc
 set_property used_in_implementation false [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/gig_ethernet_pcs_pma_0_synth_1/gig_ethernet_pcs_pma_0.dcp]
 add_files -quiet /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/tri_mode_ethernet_mac_0_synth_1/tri_mode_ethernet_mac_0.dcp
 set_property used_in_implementation false [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/tri_mode_ethernet_mac_0_synth_1/tri_mode_ethernet_mac_0.dcp]
+add_files -quiet /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/ila_0_synth_1/ila_0.dcp
+set_property used_in_implementation false [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/ila_0_synth_1/ila_0.dcp]
 read_verilog /scratch/skarandikar/fpga-zynq/zc706/src/verilog/clocking.vh
 
 add_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/system.bd

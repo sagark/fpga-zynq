@@ -2,8 +2,8 @@
 # Vivado v2014.2 (64-bit)
 # SW Build 932637 on Wed Jun 11 13:12:34 MDT 2014
 # IP Build 924643 on Fri May 30 09:20:16 MDT 2014
-# Start of session at: Mon Nov 17 18:21:01 2014
-# Process ID: 243194
+# Start of session at: Wed Nov 19 20:04:57 2014
+# Process ID: 202146
 # Log file: /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/vivado.log
 # Journal file: /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/vivado.jou
 #-----------------------------------------------------------
@@ -25,6 +25,99 @@ WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for V
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/ecad/tools/xilinx/Vivado/2014.2/data/ip'.
-open_project: Time (s): cpu = 00:00:24 ; elapsed = 00:00:06 . Memory (MB): peak = 4778.820 ; gain = 151.664
+open_project: Time (s): cpu = 00:00:24 ; elapsed = 00:00:08 . Memory (MB): peak = 4815.191 ; gain = 169.730
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/fifo/tri_mode_ethernet_mac_0_bram_tdp.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/common/tri_mode_ethernet_mac_0_sync_block.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/fifo/tri_mode_ethernet_mac_0_tx_client_fifo.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/fifo/tri_mode_ethernet_mac_0_rx_client_fifo.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/support/tri_mode_ethernet_mac_0_support.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/fifo/tri_mode_ethernet_mac_0_ten_100_1g_eth_fifo.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/common/tri_mode_ethernet_mac_0_reset_sync.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/imports/example_design/tri_mode_ethernet_mac_0_fifo_block.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/src/verilog/Top.DefaultFPGAConfig.v]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/src/verilog/clocking.vh]
+WARNING: [filemgmt 20-1763] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/scratch/skarandikar/fpga-zynq/zc706/src/verilog/rocketchip_wrapper.v]
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/gig_ethernet_pcs_pma_0/gig_ethernet_pcs_pma_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/tri_mode_ethernet_mac_0/tri_mode_ethernet_mac_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/ila_0/ila_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_axi_interconnect_0_0/system_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_axi_interconnect_1_0/system_axi_interconnect_1_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_proc_sys_reset_0_0/system_proc_sys_reset_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/gig_ethernet_pcs_pma_0/gig_ethernet_pcs_pma_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/tri_mode_ethernet_mac_0/tri_mode_ethernet_mac_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/ila_0/ila_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_axi_interconnect_0_0/system_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_axi_interconnect_1_0/system_axi_interconnect_1_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_proc_sys_reset_0_0/system_proc_sys_reset_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1.xci
+[Wed Nov 19 20:05:41 2014] Launched synth_1...
+Run output will be captured here: /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/synth_1/runme.log
+[Wed Nov 19 20:05:41 2014] Launched impl_1...
+Run output will be captured here: /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 1574 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2014.2
+Loading clock regions from /ecad/tools/xilinx/Vivado/2014.2/data/parts/xilinx/zynq/zynq/xc7z045/ClockRegion.xml
+Loading clock buffers from /ecad/tools/xilinx/Vivado/2014.2/data/parts/xilinx/zynq/zynq/xc7z045/ClockBuffers.xml
+Loading clock placement rules from /ecad/tools/xilinx/Vivado/2014.2/data/parts/xilinx/zynq/ClockPlacerRules.xml
+Loading package pin functions from /ecad/tools/xilinx/Vivado/2014.2/data/parts/xilinx/zynq/PinFunctions.xml...
+Loading package from /ecad/tools/xilinx/Vivado/2014.2/data/parts/xilinx/zynq/zynq/xc7z045/ffg900/Package.xml
+Loading io standards from /ecad/tools/xilinx/Vivado/2014.2/data/./parts/xilinx/zynq/IOStandards.xml
+Parsing XDC File [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/.Xil/Vivado-202146-a8/dcp/rocketchip_wrapper_early.xdc]
+Finished Parsing XDC File [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/.Xil/Vivado-202146-a8/dcp/rocketchip_wrapper_early.xdc]
+Parsing XDC File [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/.Xil/Vivado-202146-a8/dcp/rocketchip_wrapper.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.cache/30cf66ef/labtools_xsdb_master_lib.xdc:13]
+INFO: [Timing 38-2] Deriving generated clocks [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.cache/30cf66ef/labtools_xsdb_master_lib.xdc:13]
+get_clocks: Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 5710.062 ; gain = 511.977
+Finished Parsing XDC File [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/.Xil/Vivado-202146-a8/dcp/rocketchip_wrapper.xdc]
+Parsing XDC File [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/.Xil/Vivado-202146-a8/dcp/rocketchip_wrapper_late.xdc]
+Finished Parsing XDC File [/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/.Xil/Vivado-202146-a8/dcp/rocketchip_wrapper_late.xdc]
+Reading XDEF placement.
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 5755.070 ; gain = 45.008
+Restoring placement.
+Restored 13397 out of 13397 XDEF sites from archive | CPU: 9.900000 secs | Memory: 113.397003 MB |
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/gig_ethernet_pcs_pma_0/gig_ethernet_pcs_pma_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/tri_mode_ethernet_mac_0/tri_mode_ethernet_mac_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/ila_0/ila_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_axi_interconnect_0_0/system_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_axi_interconnect_1_0/system_axi_interconnect_1_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_proc_sys_reset_0_0/system_proc_sys_reset_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/gig_ethernet_pcs_pma_0/gig_ethernet_pcs_pma_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/tri_mode_ethernet_mac_0/tri_mode_ethernet_mac_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/ila_0/ila_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_axi_interconnect_0_0/system_axi_interconnect_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_axi_interconnect_1_0/system_axi_interconnect_1_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_proc_sys_reset_0_0/system_proc_sys_reset_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
+INFO: [Memdata 28-152] Did  not create MIG processor data. /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1.xci
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 596 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 164 instances
+  RAM128X1D => RAM128X1D (RAMD64E, RAMD64E, MUXF7, MUXF7, RAMD64E, RAMD64E): 2 instances
+  RAM16X1D => RAM32X1D (RAMD32, RAMD32): 1 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 333 instances
+  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 96 instances
+
+open_run: Time (s): cpu = 00:01:24 ; elapsed = 00:00:56 . Memory (MB): peak = 6038.254 ; gain = 1220.055
+file copy -force /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/impl_1/rocketchip_wrapper.sysdef /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf
+
+launch_sdk -workspace /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk -hwspec /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk -hwspec /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
 exit
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 17 18:22:55 2014...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 20 11:15:50 2014...

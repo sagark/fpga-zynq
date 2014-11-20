@@ -13,3 +13,30 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -data /scratch/skarandik
 
 !ENTRY org.eclipse.cdt.core 1 0 2014-11-14 13:08:06.255
 !MESSAGE Indexed 'FSBL_bsp' (119 sources, 144 headers) in 1.49 sec: 6,041 declarations; 29,216 references; 65 unresolved inclusions; 9 syntax errors; 38 unresolved names (0.11%)
+!SESSION 2014-11-17 20:42:05.819 -----------------------------------------------
+eclipse.buildId=2014.2
+java.version=1.7.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -data /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk
+
+!ENTRY org.eclipse.core.jobs 2 2 2014-11-17 20:43:29.339
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.xilinx.sdk.hw.sync.HwPlatformMonitorUtils$1
+!SESSION 2014-11-18 10:11:54.861 -----------------------------------------------
+eclipse.buildId=2014.2
+java.version=1.7.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -data /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk
+
+!ENTRY org.eclipse.core.jobs 2 2 2014-11-18 10:12:58.360
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.xilinx.sdk.hw.sync.HwPlatformMonitorUtils$1
+!SESSION 2014-11-18 10:55:12.536 -----------------------------------------------
+eclipse.buildId=2014.2
+java.version=1.7.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -data /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk
+
+!ENTRY org.eclipse.core.jobs 2 2 2014-11-18 10:56:01.984
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.xilinx.sdk.hw.sync.HwPlatformMonitorUtils$1

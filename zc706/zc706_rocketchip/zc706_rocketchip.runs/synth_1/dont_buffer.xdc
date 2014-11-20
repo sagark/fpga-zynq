@@ -3,3 +3,4 @@
 
 set_property BUFFER_TYPE NONE -quiet [get_ports -quiet -of [get_cells -hier -filter {REF_NAME==gig_ethernet_pcs_pma_0 || ORIG_REF_NAME==gig_ethernet_pcs_pma_0}]]
 set_property BUFFER_TYPE NONE -quiet [get_ports -quiet -of [get_cells -hier -filter {REF_NAME==tri_mode_ethernet_mac_0 || ORIG_REF_NAME==tri_mode_ethernet_mac_0}]]
+set_property BUFFER_TYPE NONE -quiet [get_ports -quiet -of [get_cells -hier -filter {REF_NAME==ila_0 || ORIG_REF_NAME==ila_0}]]

@@ -59,6 +59,8 @@ set rc [catch {
   set_property netlist_only true [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/gig_ethernet_pcs_pma_0_synth_1/gig_ethernet_pcs_pma_0.dcp]
   add_files -quiet /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/tri_mode_ethernet_mac_0_synth_1/tri_mode_ethernet_mac_0.dcp
   set_property netlist_only true [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/tri_mode_ethernet_mac_0_synth_1/tri_mode_ethernet_mac_0.dcp]
+  add_files -quiet /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/ila_0_synth_1/ila_0.dcp
+  set_property netlist_only true [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/ila_0_synth_1/ila_0.dcp]
   read_xdc -ref system_proc_sys_reset_0_0 /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_proc_sys_reset_0_0/system_proc_sys_reset_0_0.xdc
   set_property processing_order EARLY [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_proc_sys_reset_0_0/system_proc_sys_reset_0_0.xdc]
   read_xdc -prop_thru_buffers -ref system_proc_sys_reset_0_0 /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/ip/system_proc_sys_reset_0_0/system_proc_sys_reset_0_0_board.xdc
@@ -77,6 +79,10 @@ set rc [catch {
   set_property processing_order EARLY [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/tri_mode_ethernet_mac_0/synth/tri_mode_ethernet_mac_0.xdc]
   read_xdc -prop_thru_buffers -ref tri_mode_ethernet_mac_0 -cells inst /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/tri_mode_ethernet_mac_0/synth/tri_mode_ethernet_mac_0_board.xdc
   set_property processing_order EARLY [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/tri_mode_ethernet_mac_0/synth/tri_mode_ethernet_mac_0_board.xdc]
+  read_xdc -mode out_of_context -ref ila_0 /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/ila_0/ila_0_ooc.xdc
+  set_property processing_order EARLY [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/ila_0/ila_0_ooc.xdc]
+  read_xdc -ref ila_0 /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/ila_0/constraints/ila.xdc
+  set_property processing_order EARLY [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/ila_0/constraints/ila.xdc]
   read_xdc /scratch/skarandikar/fpga-zynq/zc706/src/constrs/base.xdc
   read_xdc -ref tri_mode_ethernet_mac_0 -cells inst /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/tri_mode_ethernet_mac_0/synth/tri_mode_ethernet_mac_0_clocks.xdc
   set_property processing_order LATE [get_files /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/ip/tri_mode_ethernet_mac_0/synth/tri_mode_ethernet_mac_0_clocks.xdc]
