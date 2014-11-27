@@ -2,17 +2,26 @@
 # Vivado v2014.2 (64-bit)
 # SW Build 932637 on Wed Jun 11 13:12:34 MDT 2014
 # IP Build 924643 on Fri May 30 09:20:16 MDT 2014
-# Start of session at: Wed Nov 19 20:04:57 2014
-# Process ID: 202146
+# Start of session at: Wed Nov 26 15:31:41 2014
+# Process ID: 164542
 # Log file: /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/vivado.log
 # Journal file: /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project zc706_rocketchip.xpr
+open_project /scratch/skarandikar/old_stuff/sampleFINAL/tri_mode_ethernet_mac_0_example/tri_mode_ethernet_mac_0_example.xpr
+current_project zc706_rocketchip
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream
 wait_on_run impl_1
+current_project tri_mode_ethernet_mac_0_example
+close_project
 open_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -name timing_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
+refresh_design
 file copy -force /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.runs/impl_1/rocketchip_wrapper.sysdef /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf
 
 launch_sdk -workspace /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk -hwspec /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf

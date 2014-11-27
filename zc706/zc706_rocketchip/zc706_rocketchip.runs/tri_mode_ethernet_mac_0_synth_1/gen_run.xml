@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="tri_mode_ethernet_mac_0_synth_1" LaunchPart="xc7z045ffg900-2" LaunchTime="1416013098">
+  <File Type="RDS-DCP" Name="tri_mode_ethernet_mac_0.dcp"/>
   <File Type="VDS-TIMINGSUMMARY" Name="tri_mode_ethernet_mac_0_timing_summary_synth.rpt"/>
   <File Type="VDS-HWDEF" Name="tri_mode_ethernet_mac_0.hwdef"/>
   <File Type="RUN-SRCS" Name="$PDATADIR/runs/tri_mode_ethernet_mac_0_synth_1/sources.xml"/>
-  <File Type="VDS-TIMING-PB" Name="tri_mode_ethernet_mac_0_timing_summary_synth.pb"/>
   <File Type="RDS-UTIL" Name="tri_mode_ethernet_mac_0_utilization_synth.rpt"/>
-  <File Type="RDS-RDS" Name="tri_mode_ethernet_mac_0.vds"/>
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/tri_mode_ethernet_mac_0_synth_1/constrs_in.xml"/>
+  <File Type="RDS-RDS" Name="tri_mode_ethernet_mac_0.vds"/>
   <File Type="RDS-UTIL-PB" Name="tri_mode_ethernet_mac_0_utilization_synth.pb"/>
   <File Type="RUN-STRAT" Name="$PDATADIR/runs/tri_mode_ethernet_mac_0_synth_1/tri_mode_ethernet_mac_0_synth_1.psg"/>
-  <File Type="RDS-DCP" Name="tri_mode_ethernet_mac_0.dcp"/>
   <File Type="PA-TCL" Name="tri_mode_ethernet_mac_0.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="tri_mode_ethernet_mac_0_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tri_mode_ethernet_mac_0">
     <File Path="$PSRCDIR/sources_1/ip/tri_mode_ethernet_mac_0/tri_mode_ethernet_mac_0.xci">
       <FileInfo>

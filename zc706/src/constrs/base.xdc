@@ -17,7 +17,8 @@ create_clock -add -name gtrefclk -period 8.000 [get_ports sfp_125_clk_p]
 #set_false_path -from [get_clocks -include_generated_clocks independent_clock] -to [get_clocks -include_generated_clocks gtrefclk]
 #set_false_path -from [get_clocks -include_generated_clocks gtrefclk] -to [get_clocks -include_generated_clocks independent_clock]
 
-
+set_property PACKAGE_PIN AB17 [get_ports GPIO_DIP_SW0]
+set_property IOSTANDARD LVCMOS25 [get_ports GPIO_DIP_SW0]
 
 #set_property PACKAGE_PIN AK25 [get_ports SW_BUTTON_LEFT]
 #set_property IOSTANDARD LVCMOS25 [get_ports SW_BUTTON_LEFT]

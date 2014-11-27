@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-| Date         : Wed Nov 19 20:18:16 2014
+| Date         : Wed Nov 26 16:08:09 2014
 | Host         : a8 running 64-bit Ubuntu 14.04.1 LTS
 | Command      : report_io -file rocketchip_wrapper_io_placed.rpt
 | Design       : rocketchip_wrapper
@@ -23,7 +23,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|           141 |
+|           142 |
 +---------------+
 
 
@@ -78,7 +78,7 @@ Table of Contents
 | AA13       |                   | High Range       | IO_0_10                 | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AA14       |                   | High Range       | IO_L20N_T3_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AA15       |                   | High Range       | IO_L20P_T3_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
-| AA16       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |     any** |            |           |      |                  |
+| AA16       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |      2.50 |            |           |      |                  |
 | AA17       |                   | High Range       | IO_25_10                | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AA18       | sfp_tx_disable    | High Range       | IO_L13P_T2_MRCC_9       | OUTPUT        | LVCMOS25          |       9 |         12 | SLOW |                     |            FP_VTT_50 |           | FIXED      |           |      | NONE             |
 | AA19       |                   | High Range       | IO_L13N_T2_MRCC_9       | User IO       |                   |       9 |            |      |                     |                      |           |            |           |      |                  |
@@ -105,11 +105,11 @@ Table of Contents
 | AB10       |                   |                  | MGTAVTTRCAL_112         | Gigabit       |                   |         |            |      |                     |                      |           |            |           |      |                  |
 | AB11       |                   |                  | GND                     | GND           |                   |         |            |      |                     |                      |       0.0 |            |           |      |                  |
 | AB12       |                   | High Range       | IO_L21P_T3_DQS_10       | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
-| AB13       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |     any** |            |           |      |                  |
+| AB13       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |      2.50 |            |           |      |                  |
 | AB14       |                   | High Range       | IO_L22N_T3_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AB15       |                   | High Range       | IO_L22P_T3_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AB16       |                   | High Range       | IO_L24N_T3_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
-| AB17       |                   | High Range       | IO_L24P_T3_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
+| AB17       | GPIO_DIP_SW0      | High Range       | IO_L24P_T3_10           | INPUT         | LVCMOS25          |      10 |            |      |                     |                 NONE |           | FIXED      |           |      | NONE             |
 | AB18       |                   |                  | GND                     | GND           |                   |         |            |      |                     |                      |       0.0 |            |           |      |                  |
 | AB19       |                   | High Range       | IO_L14P_T2_SRCC_9       | User IO       |                   |       9 |            |      |                     |                      |           |            |           |      |                  |
 | AB20       |                   | High Range       | IO_L14N_T2_SRCC_9       | User IO       |                   |       9 |            |      |                     |                      |           |            |           |      |                  |
@@ -169,7 +169,7 @@ Table of Contents
 | AD14       |                   | High Range       | IO_L9P_T1_DQS_10        | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AD15       |                   | High Range       | IO_L18N_T2_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AD16       |                   | High Range       | IO_L18P_T2_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
-| AD17       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |     any** |            |           |      |                  |
+| AD17       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |      2.50 |            |           |      |                  |
 | AD18       |                   | High Range       | IO_L12P_T1_MRCC_9       | User IO       |                   |       9 |            |      |                     |                      |           |            |           |      |                  |
 | AD19       |                   | High Range       | IO_L12N_T1_MRCC_9       | User IO       |                   |       9 |            |      |                     |                      |           |            |           |      |                  |
 | AD20       |                   | High Range       | IO_L19P_T3_9            | User IO       |                   |       9 |            |      |                     |                      |           |            |           |      |                  |
@@ -196,7 +196,7 @@ Table of Contents
 | AE11       |                   |                  | GND                     | GND           |                   |         |            |      |                     |                      |       0.0 |            |           |      |                  |
 | AE12       |                   | High Range       | IO_L7P_T1_10            | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AE13       |                   | High Range       | IO_L11P_T1_SRCC_10      | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
-| AE14       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |     any** |            |           |      |                  |
+| AE14       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |      2.50 |            |           |      |                  |
 | AE15       |                   | High Range       | IO_L16N_T2_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AE16       |                   | High Range       | IO_L16P_T2_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AE17       |                   | High Range       | IO_L17N_T2_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
@@ -260,7 +260,7 @@ Table of Contents
 | AG15       |                   | High Range       | IO_L14N_T2_SRCC_10      | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AG16       |                   | High Range       | IO_L13N_T2_MRCC_10      | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AG17       |                   | High Range       | IO_L13P_T2_MRCC_10      | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
-| AG18       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |     any** |            |           |      |                  |
+| AG18       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |      2.50 |            |           |      |                  |
 | AG19       |                   | High Range       | IO_L18N_T2_11           | User IO       |                   |      11 |            |      |                     |                      |           |            |           |      |                  |
 | AG20       |                   | High Range       | IO_L14N_T2_SRCC_11      | User IO       |                   |      11 |            |      |                     |                      |           |            |           |      |                  |
 | AG21       |                   | High Range       | IO_L13P_T2_MRCC_11      | User IO       |                   |      11 |            |      |                     |                      |           |            |           |      |                  |
@@ -287,7 +287,7 @@ Table of Contents
 | AH12       |                   | High Range       | IO_L10N_T1_10           | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AH13       |                   | High Range       | IO_L8N_T1_10            | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AH14       |                   | High Range       | IO_L8P_T1_10            | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
-| AH15       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |     any** |            |           |      |                  |
+| AH15       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |      2.50 |            |           |      |                  |
 | AH16       |                   | High Range       | IO_L6N_T0_VREF_10       | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AH17       |                   | High Range       | IO_L6P_T0_10            | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AH18       |                   | High Range       | IO_L2P_T0_10            | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
@@ -314,7 +314,7 @@ Table of Contents
 | AJ9        |                   |                  | GND                     | GND           |                   |         |            |      |                     |                      |       0.0 |            |           |      |                  |
 | AJ10       |                   |                  | MGTAVCC                 | Gigabit Power |                   |         |            |      |                     |                      |           |            |           |      |                  |
 | AJ11       |                   |                  | GND                     | GND           |                   |         |            |      |                     |                      |       0.0 |            |           |      |                  |
-| AJ12       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |     any** |            |           |      |                  |
+| AJ12       |                   | High Range       | VCCO_10                 | VCCO          |                   |      10 |            |      |                     |                      |      2.50 |            |           |      |                  |
 | AJ13       |                   | High Range       | IO_L3N_T0_DQS_10        | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AJ14       |                   | High Range       | IO_L3P_T0_DQS_10        | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |
 | AJ15       |                   | High Range       | IO_L5P_T0_10            | User IO       |                   |      10 |            |      |                     |                      |           |            |           |      |                  |

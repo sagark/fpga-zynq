@@ -34,7 +34,8 @@ module rocketchip_wrapper
     sfp_link_status,
     clk125_heartbeat,
     clk_200_p,
-    clk_200_n);
+    clk_200_n,
+    GPIO_DIP_SW0);
 
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
@@ -70,6 +71,7 @@ module rocketchip_wrapper
   output clk125_heartbeat;
   input clk_200_p;
   input clk_200_n;
+  input GPIO_DIP_SW0;
 
   wire FCLK_RESET0_N;
 
@@ -235,7 +237,7 @@ wire s_axi_rready;
     wire clk_200;
     wire clk_200_bufg;
     
-    assign sfp_tx_disable = 1'b0;
+    assign sfp_tx_disable = GPIO_DIP_SW0;
     assign sfp_link_status = status_vector[0];
     
     IBUFDS diff_clk_200 (
@@ -655,7 +657,7 @@ wire s_axi_rready;
 
   );
 
-
+/*
 ila_0 main_ila (
     .clk(host_clk),
     .trig_in(s_axi_awvalid | tx_axis_fifo_tvalid),
@@ -685,7 +687,7 @@ ila_0 main_ila (
     .probe22(s_axi_rvalid),
     .probe23(s_axi_rready)
 );
-
+*/
   BUFG  bufg_host_clk (.I(host_clk_i), .O(host_clk));
 
   MMCME2_BASE #(

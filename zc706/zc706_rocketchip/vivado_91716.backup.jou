@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:12:34 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Thu Nov 20 15:51:14 2014
+# Process ID: 87835
+# Log file: /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/vivado.log
+# Journal file: /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project zc706_rocketchip.xpr
+open_bd_design {/scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.srcs/sources_1/bd/system/system.bd}

@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-| Date         : Wed Nov 19 20:20:49 2014
+| Date         : Wed Nov 26 16:10:15 2014
 | Host         : a8 running 64-bit Ubuntu 14.04.1 LTS
 | Command      : report_drc
 -----------------------------------------------------------------------------------
@@ -324,22 +324,22 @@ Related violations: <none>
 
 REQP-181#10 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/RocketTile/icache/icache/T157/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/T156/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#11 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/RocketTile/icache/icache/T157/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/T156/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#12 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/RocketTile/icache/icache/T174/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/T173/ram_reg_0) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#13 Advisory
 writefirst  
-Synchronous clocking for BRAM (top/RocketTile/icache/icache/T174/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Synchronous clocking for BRAM (top/RocketTile/icache/icache/T173/ram_reg_1) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 REQP-181#14 Advisory
