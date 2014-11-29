@@ -237,7 +237,7 @@ wire s_axi_rready;
     wire clk_200;
     wire clk_200_bufg;
     
-    assign sfp_tx_disable = GPIO_DIP_SW0;
+//    assign sfp_tx_disable = GPIO_DIP_SW0;
     assign sfp_link_status = status_vector[0];
     
     IBUFDS diff_clk_200 (
@@ -653,8 +653,9 @@ wire s_axi_rready;
       .io_temac_s_axi_rdata(s_axi_rdata),
       .io_temac_s_axi_rresp(s_axi_rresp),
       .io_temac_s_axi_rvalid(s_axi_rvalid),
-      .io_temac_s_axi_rready(s_axi_rready)
-
+      .io_temac_s_axi_rready(s_axi_rready),
+        
+      .io_temac_sfp_tx_disable(sfp_tx_disable)
   );
 
 /*

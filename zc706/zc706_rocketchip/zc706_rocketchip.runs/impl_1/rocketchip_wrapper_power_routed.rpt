@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-| Date             : Wed Nov 26 16:10:37 2014
+| Date             : Sat Nov 29 12:34:08 2014
 | Host             : a8 running 64-bit Ubuntu 14.04.1 LTS
 | Command          : report_power -file rocketchip_wrapper_power_routed.rpt -pb rocketchip_wrapper_power_summary_routed.pb
 | Design           : rocketchip_wrapper
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+--------+
-| Total On-Chip Power (W)  | 2.219  |
-| Dynamic (W)              | 1.949  |
+| Total On-Chip Power (W)  | 2.217  |
+| Dynamic (W)              | 1.947  |
 | Device Static (W)        | 0.270  |
 | Total Off-Chip Power (W) | 0.121  |
 | Effective TJA (C/W)      | 1.8    |
@@ -50,24 +50,24 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.062 |       10 |       --- |             --- |
-| Slice Logic              |     0.035 |    59454 |       --- |             --- |
-|   LUT as Logic           |     0.033 |    28763 |    218600 |           13.15 |
-|   Register               |    <0.001 |    20485 |    437200 |            4.68 |
+| Clocks                   |     0.061 |       10 |       --- |             --- |
+| Slice Logic              |     0.035 |    59547 |       --- |             --- |
+|   LUT as Logic           |     0.033 |    28810 |    218600 |           13.17 |
+|   Register               |    <0.001 |    20517 |    437200 |            4.69 |
 |   LUT as Distributed RAM |    <0.001 |     1494 |     70400 |            2.12 |
-|   CARRY4                 |    <0.001 |      835 |     54650 |            1.52 |
+|   CARRY4                 |    <0.001 |      843 |     54650 |            1.54 |
 |   F7/F8 Muxes            |    <0.001 |     1278 |    218600 |            0.58 |
-|   LUT as Shift Register  |    <0.001 |       31 |     70400 |            0.04 |
+|   LUT as Shift Register  |    <0.001 |       30 |     70400 |            0.04 |
 |   Others                 |     0.000 |      857 |       --- |             --- |
-| Signals                  |     0.047 |    47134 |       --- |             --- |
+| Signals                  |     0.046 |    47224 |       --- |             --- |
 | Block RAM                |     0.029 |       20 |       545 |            3.66 |
 | MMCM                     |     0.202 |        2 |         8 |           25.00 |
 | DSPs                     |     0.001 |       15 |       900 |            1.66 |
-| I/O                      |     0.005 |       12 |       362 |            3.31 |
+| I/O                      |     0.004 |       12 |       362 |            3.31 |
 | GTX                      |     0.222 |        1 |        16 |            6.25 |
 | PS7                      |     1.346 |        1 |       --- |             --- |
 | Static Power             |     0.270 |          |           |                 |
-| Total                    |     2.219 |          |           |                 |
+| Total                    |     2.217 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,10 +77,10 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.244 |       0.185 |      0.060 |
+| Vccint    |       1.000 |     0.243 |       0.183 |      0.059 |
 | Vccaux    |       1.800 |     0.167 |       0.113 |      0.054 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
-| Vcco25    |       2.500 |     0.002 |       0.001 |      0.001 |
+| Vcco25    |       2.500 |     0.001 |       0.000 |      0.001 |
 | Vcco18    |       1.800 |     0.001 |       0.000 |      0.001 |
 | Vcco15    |       1.500 |     0.001 |       0.000 |      0.001 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
@@ -160,13 +160,13 @@ Table of Contents
 +--------------------------------------------------------------+-----------+
 | Name                                                         | Power (W) |
 +--------------------------------------------------------------+-----------+
-| rocketchip_wrapper                                           |     1.949 |
-|   core_wrapper                                               |     0.345 |
-|     inst                                                     |     0.345 |
+| rocketchip_wrapper                                           |     1.947 |
+|   core_wrapper                                               |     0.343 |
+|     inst                                                     |     0.343 |
 |       core_clocking_i                                        |     0.106 |
 |       core_gt_common_i                                       |    <0.001 |
 |       core_resets_i                                          |    <0.001 |
-|       pcs_pma_block_i                                        |     0.239 |
+|       pcs_pma_block_i                                        |     0.237 |
 |         gig_ethernet_pcs_pma_0_core                          |     0.005 |
 |           gpcs_pma_inst                                      |     0.005 |
 |             HAS_AUTO_NEG.AUTO_NEGOTIATION                    |     0.001 |
@@ -179,10 +179,10 @@ Table of Contents
 |             SYNC_SIGNAL_DETECT                               |    <0.001 |
 |             TRANSMITTER                                      |    <0.001 |
 |         sync_block_reset_done                                |    <0.001 |
-|         transceiver_inst                                     |     0.234 |
-|           gtwizard_inst                                      |     0.233 |
-|             inst                                             |     0.233 |
-|               gt0_rxresetfsm_i                               |     0.005 |
+|         transceiver_inst                                     |     0.232 |
+|           gtwizard_inst                                      |     0.230 |
+|             inst                                             |     0.230 |
+|               gt0_rxresetfsm_i                               |     0.004 |
 |                 sync_RXRESETDONE                             |    <0.001 |
 |                 sync_cplllock                                |    <0.001 |
 |                 sync_data_valid                              |    <0.001 |
@@ -190,7 +190,7 @@ Table of Contents
 |                 sync_run_phase_alignment_int                 |    <0.001 |
 |                 sync_rx_fsm_reset_done_int                   |    <0.001 |
 |                 sync_time_out_wait_bypass                    |    <0.001 |
-|               gt0_txresetfsm_i                               |     0.004 |
+|               gt0_txresetfsm_i                               |     0.003 |
 |                 sync_TXRESETDONE                             |    <0.001 |
 |                 sync_cplllock                                |    <0.001 |
 |                 sync_mmcm_lock_reclocked                     |    <0.001 |
@@ -285,20 +285,20 @@ Table of Contents
 |         EXT_LPF                                              |    <0.001 |
 |         SEQ                                                  |    <0.001 |
 |           SEQ_COUNTER                                        |    <0.001 |
-|     processing_system7_0                                     |     1.347 |
-|       inst                                                   |     1.347 |
-|   temac0                                                     |     0.026 |
+|     processing_system7_0                                     |     1.346 |
+|       inst                                                   |     1.346 |
+|   temac0                                                     |     0.028 |
 |     rx_mac_reset_gen                                         |    <0.001 |
-|     trimac_sup_block                                         |     0.021 |
-|       tri_mode_ethernet_mac_i                                |     0.021 |
-|         inst                                                 |     0.021 |
+|     trimac_sup_block                                         |     0.022 |
+|       tri_mode_ethernet_mac_i                                |     0.022 |
+|         inst                                                 |     0.022 |
 |           axi4_lite_ipif                                     |    <0.001 |
 |             axi_lite_top                                     |    <0.001 |
 |               I_SLAVE_ATTACHMENT                             |    <0.001 |
 |                 DATA_PHASE_WDT.I_DPTO_COUNTER                |    <0.001 |
 |                 I_DECODER                                    |    <0.001 |
-|           tri_mode_ethernet_mac_0_core                       |     0.020 |
-|             addr_filter_top                                  |    <0.001 |
+|           tri_mode_ethernet_mac_0_core                       |     0.021 |
+|             addr_filter_top                                  |     0.001 |
 |               address_filter_inst                            |    <0.001 |
 |                 addr_regs.unicast_address_compare            |    <0.001 |
 |                   byte_wide_ram[0].header_compare_dist_ram   |    <0.001 |
@@ -351,7 +351,7 @@ Table of Contents
 |               FRAME_CHECKER                                  |    <0.001 |
 |               FRAME_DECODER                                  |    <0.001 |
 |               RX_SM                                          |    <0.001 |
-|             stats_block.statistics_counters                  |     0.008 |
+|             stats_block.statistics_counters                  |     0.009 |
 |               fast_statistic_control[0].fast_statistics      |    <0.001 |
 |                 sync_inc_vector                              |    <0.001 |
 |               fast_statistic_control[1].fast_statistics      |    <0.001 |
@@ -542,7 +542,7 @@ Table of Contents
 |           vector_decode_inst                                 |    <0.001 |
 |     tx_mac_reset_gen                                         |    <0.001 |
 |     user_side_FIFO                                           |     0.005 |
-|       rx_fifo_i                                              |     0.001 |
+|       rx_fifo_i                                              |     0.002 |
 |         resync_wr_store_frame_tog                            |    <0.001 |
 |         rx_ramgen_i                                          |    <0.001 |
 |         sync_rd_addr_tog                                     |    <0.001 |
@@ -553,7 +553,7 @@ Table of Contents
 |         resync_wr_frame_in_fifo                              |    <0.001 |
 |         resync_wr_frames_in_fifo                             |    <0.001 |
 |         tx_ramgen_i                                          |     0.002 |
-|   top                                                        |     0.126 |
+|   top                                                        |     0.125 |
 |     Queue_0                                                  |    <0.001 |
 |       ram_reg_0_1_0_5                                        |    <0.001 |
 |       ram_reg_0_1_12_17                                      |    <0.001 |
@@ -582,10 +582,10 @@ Table of Contents
 |     Queue_2                                                  |    <0.001 |
 |       ram_reg_0_1_0_0                                        |    <0.001 |
 |     Queue_3                                                  |    <0.001 |
-|     RocketTile                                               |     0.100 |
-|       core                                                   |     0.046 |
-|         FPU                                                  |     0.031 |
-|           dfma                                               |     0.012 |
+|     RocketTile                                               |     0.099 |
+|       core                                                   |     0.045 |
+|         FPU                                                  |     0.030 |
+|           dfma                                               |     0.010 |
 |           fpiu                                               |     0.005 |
 |           fpmu                                               |    <0.001 |
 |           ifpu                                               |     0.004 |
@@ -615,17 +615,17 @@ Table of Contents
 |           T18_reg_r2_0_31_60_63                              |    <0.001 |
 |           T18_reg_r2_0_31_6_11                               |    <0.001 |
 |           div                                                |     0.008 |
-|           pcr                                                |     0.002 |
+|           pcr                                                |     0.003 |
 |             temac_manage                                     |    <0.001 |
 |             temac_receive                                    |    <0.001 |
 |             temac_transmit                                   |    <0.001 |
 |       dcArb                                                  |    <0.001 |
 |       dcache                                                 |     0.034 |
 |         FlowThroughSerializer_0                              |     0.004 |
-|         data                                                 |     0.015 |
+|         data                                                 |     0.014 |
 |           T33                                                |     0.004 |
 |           T6                                                 |     0.003 |
-|           T64                                                |     0.004 |
+|           T64                                                |     0.003 |
 |           T91                                                |     0.004 |
 |         dtlb                                                 |     0.001 |
 |           tag_cam                                            |    <0.001 |
@@ -640,7 +640,7 @@ Table of Contents
 |               ram_reg_0_15_18_23                             |    <0.001 |
 |               ram_reg_0_15_60_65                             |    <0.001 |
 |               ram_reg_0_15_6_11                              |    <0.001 |
-|           MSHR_1                                             |     0.001 |
+|           MSHR_1                                             |    <0.001 |
 |             ackq                                             |    <0.001 |
 |             rpq                                              |    <0.001 |
 |               ram_reg_0_15_0_5                               |    <0.001 |
@@ -655,7 +655,7 @@ Table of Contents
 |           T21_reg_0_127_0_0                                  |    <0.001 |
 |           T21_reg_0_127_1_1                                  |    <0.001 |
 |         icache                                               |     0.010 |
-|           FlowThroughSerializer_1                            |     0.004 |
+|           FlowThroughSerializer_1                            |     0.003 |
 |           T156                                               |     0.002 |
 |           T173                                               |     0.002 |
 |           ack_q                                              |    <0.001 |
@@ -675,7 +675,7 @@ Table of Contents
 |         ram_reg_0_1_0_5                                      |    <0.001 |
 |       Queue_12                                               |    <0.001 |
 |       Queue_13                                               |    <0.001 |
-|       Queue_4                                                |     0.001 |
+|       Queue_4                                                |    <0.001 |
 |         ram_reg_0_1_1026_1031                                |    <0.001 |
 |         ram_reg_0_1_1032_1037                                |    <0.001 |
 |         ram_reg_0_1_1038_1043                                |    <0.001 |

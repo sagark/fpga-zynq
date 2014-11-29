@@ -21589,32 +21589,35 @@ module ManagementMachine(input clk, input reset,
     input [31:0] io_s_axi_rdata,
     input [1:0] io_s_axi_rresp,
     input  io_s_axi_rvalid,
-    output io_s_axi_rready
+    output io_s_axi_rready,
+    output io_sfp_tx_disable
 );
 
   wire T0;
-  reg [2:0] state;
-  wire[2:0] T55;
-  wire[2:0] T1;
-  wire[2:0] T2;
-  wire[2:0] T3;
-  wire[2:0] T4;
-  wire[2:0] T5;
-  wire[2:0] T6;
-  wire[2:0] T7;
+  reg [31:0] bringup_sfp_tx_disable;
+  wire[31:0] T66;
+  wire[31:0] T1;
+  wire[31:0] T2;
+  wire[31:0] T3;
+  wire[31:0] T4;
+  wire T5;
+  wire T6;
+  wire T7;
   wire T8;
   wire T9;
   wire T10;
   wire T11;
   wire T12;
   wire T13;
-  wire T14;
-  wire T15;
-  wire T16;
-  wire T17;
-  wire T18;
-  wire T19;
-  wire T20;
+  reg [2:0] state;
+  wire[2:0] T67;
+  wire[2:0] T14;
+  wire[2:0] T15;
+  wire[2:0] T16;
+  wire[2:0] T17;
+  wire[2:0] T18;
+  wire[2:0] T19;
+  wire[2:0] T20;
   wire T21;
   wire T22;
   wire T23;
@@ -21644,112 +21647,148 @@ module ManagementMachine(input clk, input reset,
   wire T47;
   wire T48;
   wire T49;
-  reg  handled;
-  wire T56;
   wire T50;
   wire T51;
   wire T52;
   wire T53;
   wire T54;
+  wire T55;
+  wire T56;
+  wire T57;
+  wire T58;
+  wire T59;
+  wire T60;
+  reg  handled;
+  wire T68;
+  wire T61;
+  wire T62;
+  wire T63;
+  wire T64;
+  wire T65;
 
 `ifndef SYNTHESIS
   integer initvar;
   initial begin
     #0.002;
+    bringup_sfp_tx_disable = {1{$random}};
     state = {1{$random}};
     handled = {1{$random}};
   end
 `endif
 
-  assign io_s_axi_rready = T0;
-  assign T0 = state == 3'h3;
-  assign T55 = reset ? 3'h0 : T1;
-  assign T1 = T37 ? 3'h0 : T2;
-  assign T2 = T32 ? 3'h0 : T3;
-  assign T3 = T27 ? 3'h0 : T4;
-  assign T4 = T22 ? 3'h4 : T5;
-  assign T5 = T16 ? 3'h3 : T6;
-  assign T6 = T10 ? 3'h2 : T7;
-  assign T7 = T8 ? 3'h1 : state;
-  assign T8 = T9 & io_write_to_cfga;
-  assign T9 = state == 3'h0;
-  assign T10 = T13 & T11;
-  assign T11 = T12 & io_s_axi_awready;
-  assign T12 = io_cfgd_in[6'h20:6'h20];
-  assign T13 = T15 & T14;
-  assign T14 = state == 3'h1;
-  assign T15 = T9 ^ 1'h1;
-  assign T16 = T13 & T17;
-  assign T17 = T21 & T18;
-  assign T18 = T19 & io_s_axi_arready;
-  assign T19 = T20 == 1'h0;
-  assign T20 = io_cfgd_in[6'h20:6'h20];
-  assign T21 = T11 ^ 1'h1;
-  assign T22 = T23 & io_s_axi_wready;
-  assign T23 = T25 & T24;
-  assign T24 = state == 3'h2;
-  assign T25 = T26 ^ 1'h1;
-  assign T26 = T9 | T14;
-  assign T27 = T28 & io_s_axi_rvalid;
-  assign T28 = T30 & T29;
-  assign T29 = state == 3'h3;
-  assign T30 = T31 ^ 1'h1;
-  assign T31 = T26 | T24;
-  assign T32 = T33 & io_s_axi_bvalid;
-  assign T33 = T35 & T34;
-  assign T34 = state == 3'h4;
-  assign T35 = T36 ^ 1'h1;
-  assign T36 = T31 | T29;
-  assign T37 = T38 ^ 1'h1;
-  assign T38 = T36 | T34;
-  assign io_s_axi_arvalid = T39;
-  assign T39 = T42 & T40;
-  assign T40 = T41 == 1'h0;
-  assign T41 = io_cfgd_in[6'h20:6'h20];
-  assign T42 = state == 3'h1;
-  assign io_s_axi_bready = T43;
-  assign T43 = state == 3'h4;
-  assign io_s_axi_wvalid = T44;
-  assign T44 = state == 3'h2;
-  assign io_s_axi_awvalid = T45;
-  assign T45 = T47 & T46;
-  assign T46 = io_cfgd_in[6'h20:6'h20];
-  assign T47 = state == 3'h1;
-  assign io_stall_out = T48;
-  assign T48 = T53 & T49;
-  assign T49 = handled == 1'h0;
-  assign T56 = reset ? 1'h0 : T50;
-  assign T50 = T32 ? 1'h1 : T51;
-  assign T51 = T27 ? 1'h1 : T52;
-  assign T52 = T9 ? 1'h0 : handled;
-  assign T53 = T54 | io_write_to_cfga;
-  assign T54 = state != 3'h0;
+  assign io_sfp_tx_disable = T0;
+  assign T0 = bringup_sfp_tx_disable < 32'h2faf080;
+  assign T66 = reset ? 32'h0 : T1;
+  assign T1 = T9 ? 32'h1 : T2;
+  assign T2 = T6 ? 32'h0 : T3;
+  assign T3 = T5 ? bringup_sfp_tx_disable : T4;
+  assign T4 = bringup_sfp_tx_disable + 32'h1;
+  assign T5 = bringup_sfp_tx_disable == 32'h0;
+  assign T6 = T8 & T7;
+  assign T7 = bringup_sfp_tx_disable == 32'h5f5e100;
+  assign T8 = T5 ^ 1'h1;
+  assign T9 = T11 & T10;
+  assign T10 = io_cfgd_in[6'h21:6'h21];
+  assign T11 = T12 & io_s_axi_bvalid;
+  assign T12 = T48 & T13;
+  assign T13 = state == 3'h4;
+  assign T67 = reset ? 3'h0 : T14;
+  assign T14 = T45 ? 3'h0 : T15;
+  assign T15 = T11 ? 3'h0 : T16;
+  assign T16 = T40 ? 3'h0 : T17;
+  assign T17 = T35 ? 3'h4 : T18;
+  assign T18 = T29 ? 3'h3 : T19;
+  assign T19 = T23 ? 3'h2 : T20;
+  assign T20 = T21 ? 3'h1 : state;
+  assign T21 = T22 & io_write_to_cfga;
+  assign T22 = state == 3'h0;
+  assign T23 = T26 & T24;
+  assign T24 = T25 & io_s_axi_awready;
+  assign T25 = io_cfgd_in[6'h20:6'h20];
+  assign T26 = T28 & T27;
+  assign T27 = state == 3'h1;
+  assign T28 = T22 ^ 1'h1;
+  assign T29 = T26 & T30;
+  assign T30 = T34 & T31;
+  assign T31 = T32 & io_s_axi_arready;
+  assign T32 = T33 == 1'h0;
+  assign T33 = io_cfgd_in[6'h20:6'h20];
+  assign T34 = T24 ^ 1'h1;
+  assign T35 = T36 & io_s_axi_wready;
+  assign T36 = T38 & T37;
+  assign T37 = state == 3'h2;
+  assign T38 = T39 ^ 1'h1;
+  assign T39 = T22 | T27;
+  assign T40 = T41 & io_s_axi_rvalid;
+  assign T41 = T43 & T42;
+  assign T42 = state == 3'h3;
+  assign T43 = T44 ^ 1'h1;
+  assign T44 = T39 | T37;
+  assign T45 = T46 ^ 1'h1;
+  assign T46 = T47 | T13;
+  assign T47 = T44 | T42;
+  assign T48 = T47 ^ 1'h1;
+  assign io_s_axi_rready = T49;
+  assign T49 = state == 3'h3;
+  assign io_s_axi_arvalid = T50;
+  assign T50 = T53 & T51;
+  assign T51 = T52 == 1'h0;
+  assign T52 = io_cfgd_in[6'h20:6'h20];
+  assign T53 = state == 3'h1;
+  assign io_s_axi_bready = T54;
+  assign T54 = state == 3'h4;
+  assign io_s_axi_wvalid = T55;
+  assign T55 = state == 3'h2;
+  assign io_s_axi_awvalid = T56;
+  assign T56 = T58 & T57;
+  assign T57 = io_cfgd_in[6'h20:6'h20];
+  assign T58 = state == 3'h1;
+  assign io_stall_out = T59;
+  assign T59 = T64 & T60;
+  assign T60 = handled == 1'h0;
+  assign T68 = reset ? 1'h0 : T61;
+  assign T61 = T11 ? 1'h1 : T62;
+  assign T62 = T40 ? 1'h1 : T63;
+  assign T63 = T22 ? 1'h0 : handled;
+  assign T64 = T65 | io_write_to_cfga;
+  assign T65 = state != 3'h0;
 
   always @(posedge clk) begin
     if(reset) begin
+      bringup_sfp_tx_disable <= 32'h0;
+    end else if(T9) begin
+      bringup_sfp_tx_disable <= 32'h1;
+    end else if(T6) begin
+      bringup_sfp_tx_disable <= 32'h0;
+    end else if(T5) begin
+      bringup_sfp_tx_disable <= bringup_sfp_tx_disable;
+    end else begin
+      bringup_sfp_tx_disable <= T4;
+    end
+    if(reset) begin
       state <= 3'h0;
-    end else if(T37) begin
+    end else if(T45) begin
       state <= 3'h0;
-    end else if(T32) begin
+    end else if(T11) begin
       state <= 3'h0;
-    end else if(T27) begin
+    end else if(T40) begin
       state <= 3'h0;
-    end else if(T22) begin
+    end else if(T35) begin
       state <= 3'h4;
-    end else if(T16) begin
+    end else if(T29) begin
       state <= 3'h3;
-    end else if(T10) begin
+    end else if(T23) begin
       state <= 3'h2;
-    end else if(T8) begin
+    end else if(T21) begin
       state <= 3'h1;
     end
     if(reset) begin
       handled <= 1'h0;
-    end else if(T32) begin
+    end else if(T11) begin
       handled <= 1'h1;
-    end else if(T27) begin
+    end else if(T40) begin
       handled <= 1'h1;
-    end else if(T9) begin
+    end else if(T22) begin
       handled <= 1'h0;
     end
   end
@@ -21919,6 +21958,7 @@ module CSRFile(input clk, input reset,
     input [1:0] io_temac_s_axi_rresp,
     input  io_temac_s_axi_rvalid,
     output io_temac_s_axi_rready,
+    output io_temac_sfp_tx_disable,
     output[7:0] io_status_ip,
     output[7:0] io_status_im,
     output[6:0] io_status_zero,
@@ -22757,6 +22797,7 @@ module CSRFile(input clk, input reset,
   wire temac_manage_io_s_axi_bready;
   wire temac_manage_io_s_axi_arvalid;
   wire temac_manage_io_s_axi_rready;
+  wire temac_manage_io_sfp_tx_disable;
   wire[7:0] temac_transmit_io_tx_axis_fifo_tdata;
   wire temac_transmit_io_tx_axis_fifo_tvalid;
   wire temac_transmit_io_tx_axis_fifo_tlast;
@@ -23072,6 +23113,7 @@ module CSRFile(input clk, input reset,
   assign T127 = T19[5'h1f:1'h0];
   assign T128 = wen & T129;
   assign T129 = T10[4'hb:4'hb];
+  assign io_temac_sfp_tx_disable = temac_manage_io_sfp_tx_disable;
   assign io_temac_s_axi_rready = temac_manage_io_s_axi_rready;
   assign io_temac_s_axi_arvalid = temac_manage_io_s_axi_arvalid;
   assign io_temac_s_axi_araddr = T130;
@@ -23510,7 +23552,8 @@ module CSRFile(input clk, input reset,
        .io_s_axi_rdata( io_temac_s_axi_rdata ),
        .io_s_axi_rresp( io_temac_s_axi_rresp ),
        .io_s_axi_rvalid( io_temac_s_axi_rvalid ),
-       .io_s_axi_rready( temac_manage_io_s_axi_rready )
+       .io_s_axi_rready( temac_manage_io_s_axi_rready ),
+       .io_sfp_tx_disable( temac_manage_io_sfp_tx_disable )
   );
   TransmitMachine temac_transmit(.clk(clk), .reset(reset),
        .io_tx_axis_fifo_tdata( temac_transmit_io_tx_axis_fifo_tdata ),
@@ -24278,7 +24321,8 @@ module Datapath(input clk, input reset,
     input [31:0] io_temac_s_axi_rdata,
     input [1:0] io_temac_s_axi_rresp,
     input  io_temac_s_axi_rvalid,
-    output io_temac_s_axi_rready
+    output io_temac_s_axi_rready,
+    output io_temac_sfp_tx_disable
 );
 
   wire T0;
@@ -24670,6 +24714,7 @@ module Datapath(input clk, input reset,
   wire[11:0] pcr_io_temac_s_axi_araddr;
   wire pcr_io_temac_s_axi_arvalid;
   wire pcr_io_temac_s_axi_rready;
+  wire pcr_io_temac_sfp_tx_disable;
   wire[7:0] pcr_io_status_ip;
   wire[7:0] pcr_io_status_im;
   wire[6:0] pcr_io_status_zero;
@@ -24979,6 +25024,7 @@ module Datapath(input clk, input reset,
   assign T314 = T247[5'h1f:5'h1f];
   assign T315 = ex_rs_1;
   assign T316 = ex_reg_sel_alu2 == 3'h2;
+  assign io_temac_sfp_tx_disable = pcr_io_temac_sfp_tx_disable;
   assign io_temac_s_axi_rready = pcr_io_temac_s_axi_rready;
   assign io_temac_s_axi_arvalid = pcr_io_temac_s_axi_arvalid;
   assign io_temac_s_axi_araddr = pcr_io_temac_s_axi_araddr;
@@ -25209,6 +25255,7 @@ module Datapath(input clk, input reset,
        .io_temac_s_axi_rresp( io_temac_s_axi_rresp ),
        .io_temac_s_axi_rvalid( io_temac_s_axi_rvalid ),
        .io_temac_s_axi_rready( pcr_io_temac_s_axi_rready ),
+       .io_temac_sfp_tx_disable( pcr_io_temac_sfp_tx_disable ),
        .io_status_ip( pcr_io_status_ip ),
        .io_status_im( pcr_io_status_im ),
        .io_status_zero( pcr_io_status_zero ),
@@ -33910,7 +33957,8 @@ module Core(input clk, input reset,
     input [31:0] io_temac_s_axi_rdata,
     input [1:0] io_temac_s_axi_rresp,
     input  io_temac_s_axi_rvalid,
-    output io_temac_s_axi_rready
+    output io_temac_s_axi_rready,
+    output io_temac_sfp_tx_disable
 );
 
   wire[2:0] ctrl_io_dpath_sel_pc;
@@ -34058,6 +34106,7 @@ module Core(input clk, input reset,
   wire[11:0] dpath_io_temac_s_axi_araddr;
   wire dpath_io_temac_s_axi_arvalid;
   wire dpath_io_temac_s_axi_rready;
+  wire dpath_io_temac_sfp_tx_disable;
   wire FPU_io_ctrl_fcsr_rdy;
   wire FPU_io_ctrl_nack_mem;
   wire FPU_io_ctrl_illegal_rm;
@@ -34083,6 +34132,7 @@ module Core(input clk, input reset,
   wire[63:0] FPU_io_dpath_toint_data;
 
 
+  assign io_temac_sfp_tx_disable = dpath_io_temac_sfp_tx_disable;
   assign io_temac_s_axi_rready = dpath_io_temac_s_axi_rready;
   assign io_temac_s_axi_arvalid = dpath_io_temac_s_axi_arvalid;
   assign io_temac_s_axi_araddr = dpath_io_temac_s_axi_araddr;
@@ -34884,7 +34934,8 @@ module Core(input clk, input reset,
        .io_temac_s_axi_rdata( io_temac_s_axi_rdata ),
        .io_temac_s_axi_rresp( io_temac_s_axi_rresp ),
        .io_temac_s_axi_rvalid( io_temac_s_axi_rvalid ),
-       .io_temac_s_axi_rready( dpath_io_temac_s_axi_rready )
+       .io_temac_s_axi_rready( dpath_io_temac_s_axi_rready ),
+       .io_temac_sfp_tx_disable( dpath_io_temac_sfp_tx_disable )
   );
   FPU FPU(.clk(clk), .reset(reset),
        .io_ctrl_valid( ctrl_io_fpu_valid ),
@@ -35744,7 +35795,8 @@ module RocketTile(input clk, input reset,
     input [31:0] io_temac_s_axi_rdata,
     input [1:0] io_temac_s_axi_rresp,
     input  io_temac_s_axi_rvalid,
-    output io_temac_s_axi_rready
+    output io_temac_s_axi_rready,
+    output io_temac_sfp_tx_disable
 );
 
   wire[1:0] T1;
@@ -36002,8 +36054,10 @@ module RocketTile(input clk, input reset,
   wire[11:0] core_io_temac_s_axi_araddr;
   wire core_io_temac_s_axi_arvalid;
   wire core_io_temac_s_axi_rready;
+  wire core_io_temac_sfp_tx_disable;
 
 
+  assign io_temac_sfp_tx_disable = core_io_temac_sfp_tx_disable;
   assign io_temac_s_axi_rready = core_io_temac_s_axi_rready;
   assign io_temac_s_axi_arvalid = core_io_temac_s_axi_arvalid;
   assign io_temac_s_axi_araddr = core_io_temac_s_axi_araddr;
@@ -36629,7 +36683,8 @@ module RocketTile(input clk, input reset,
        .io_temac_s_axi_rdata( io_temac_s_axi_rdata ),
        .io_temac_s_axi_rresp( io_temac_s_axi_rresp ),
        .io_temac_s_axi_rvalid( io_temac_s_axi_rvalid ),
-       .io_temac_s_axi_rready( core_io_temac_s_axi_rready )
+       .io_temac_s_axi_rready( core_io_temac_s_axi_rready ),
+       .io_temac_sfp_tx_disable( core_io_temac_sfp_tx_disable )
   );
   `ifndef SYNTHESIS
     assign core.io_dmem_ptw_req_valid = {1{$random}};
@@ -53554,7 +53609,8 @@ module Top(input clk, input reset,
     input [31:0] io_temac_s_axi_rdata,
     input [1:0] io_temac_s_axi_rresp,
     input  io_temac_s_axi_rvalid,
-    output io_temac_s_axi_rready
+    output io_temac_s_axi_rready,
+    output io_temac_sfp_tx_disable
 );
 
   wire resetSigs_0;
@@ -53615,6 +53671,7 @@ module Top(input clk, input reset,
   wire[11:0] RocketTile_io_temac_s_axi_araddr;
   wire RocketTile_io_temac_s_axi_arvalid;
   wire RocketTile_io_temac_s_axi_rready;
+  wire RocketTile_io_temac_sfp_tx_disable;
   wire uncore_io_host_in_ready;
   wire uncore_io_host_out_valid;
   wire[15:0] uncore_io_host_out_bits;
@@ -53661,6 +53718,7 @@ module Top(input clk, input reset,
 `endif
 
   assign resetSigs_0 = uncore_io_htif_0_reset;
+  assign io_temac_sfp_tx_disable = RocketTile_io_temac_sfp_tx_disable;
   assign io_temac_s_axi_rready = RocketTile_io_temac_s_axi_rready;
   assign io_temac_s_axi_arvalid = RocketTile_io_temac_s_axi_arvalid;
   assign io_temac_s_axi_araddr = RocketTile_io_temac_s_axi_araddr;
@@ -53762,7 +53820,8 @@ module Top(input clk, input reset,
        .io_temac_s_axi_rdata( io_temac_s_axi_rdata ),
        .io_temac_s_axi_rresp( io_temac_s_axi_rresp ),
        .io_temac_s_axi_rvalid( io_temac_s_axi_rvalid ),
-       .io_temac_s_axi_rready( RocketTile_io_temac_s_axi_rready )
+       .io_temac_s_axi_rready( RocketTile_io_temac_s_axi_rready ),
+       .io_temac_sfp_tx_disable( RocketTile_io_temac_sfp_tx_disable )
   );
   Uncore uncore(.clk(clk), .reset(reset),
        //.io_host_clk(  )

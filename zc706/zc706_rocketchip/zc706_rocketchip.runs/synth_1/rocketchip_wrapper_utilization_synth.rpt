@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-| Date         : Wed Nov 26 16:04:41 2014
+| Date         : Sat Nov 29 12:28:01 2014
 | Host         : a8 running 64-bit Ubuntu 14.04.1 LTS
 | Command      : report_utilization -file rocketchip_wrapper_utilization_synth.rpt -pb rocketchip_wrapper_utilization_synth.pb
 | Design       : rocketchip_wrapper
@@ -29,13 +29,13 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 28336 |     0 |    218600 | 12.96 |
-|   LUT as Logic             | 27013 |     0 |    218600 | 12.35 |
+| Slice LUTs*                | 28403 |     0 |    218600 | 12.99 |
+|   LUT as Logic             | 27080 |     0 |    218600 | 12.38 |
 |   LUT as Memory            |  1323 |     0 |     70400 |  1.87 |
 |     LUT as Distributed RAM |  1304 |     0 |           |       |
 |     LUT as Shift Register  |    19 |     0 |           |       |
-| Slice Registers            | 17321 |     0 |    437200 |  3.96 |
-|   Register as Flip Flop    | 17321 |     0 |    437200 |  3.96 |
+| Slice Registers            | 17353 |     0 |    437200 |  3.96 |
+|   Register as Flip Flop    | 17353 |     0 |    437200 |  3.96 |
 |   Register as Latch        |     0 |     0 |    437200 |  0.00 |
 | F7 Muxes                   |  1242 |     0 |    109300 |  1.13 |
 | F8 Muxes                   |    23 |     0 |     54650 |  0.04 |
@@ -75,7 +75,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+--------+
 |          Site Type          | Used | Fixed | Available |  Util% |
 +-----------------------------+------+-------+-----------+--------+
-| Bonded IOB                  |    6 |     0 |       362 |   1.65 |
+| Bonded IOB                  |    5 |     0 |       362 |   1.38 |
 | Bonded IPADs                |    0 |     0 |        50 |   0.00 |
 | Bonded OPADs                |    0 |     0 |        32 |   0.00 |
 | Bonded IOPADs               |  130 |     0 |       130 | 100.00 |
@@ -136,17 +136,17 @@ Table of Contents
 +------------+-------+----------------------+
 |  Ref Name  |  Used |  Functional Category |
 +------------+-------+----------------------+
-| FDRE       | 17009 |         Flop & Latch |
-| LUT6       | 14591 |                  LUT |
-| LUT5       |  5577 |                  LUT |
-| LUT3       |  4821 |                  LUT |
-| LUT4       |  3300 |                  LUT |
-| LUT2       |  2047 |                  LUT |
+| FDRE       | 17041 |         Flop & Latch |
+| LUT6       | 14600 |                  LUT |
+| LUT5       |  5585 |                  LUT |
+| LUT3       |  4823 |                  LUT |
+| LUT4       |  3301 |                  LUT |
+| LUT2       |  2079 |                  LUT |
 | RAMD32     |  1942 |   Distributed Memory |
 | MUXF7      |  1242 |                MuxFx |
-| CARRY4     |   766 |           CarryLogic |
+| CARRY4     |   774 |           CarryLogic |
 | RAMS32     |   646 |   Distributed Memory |
-| LUT1       |   444 |                  LUT |
+| LUT1       |   476 |                  LUT |
 | FDSE       |   203 |         Flop & Latch |
 | BIBUF      |   130 |                   IO |
 | FDCE       |    66 |         Flop & Latch |
@@ -162,7 +162,6 @@ Table of Contents
 | PS7        |     1 | Specialized Resource |
 | MMCME2_ADV |     1 |                Clock |
 | IBUFDS     |     1 |                   IO |
-| IBUF       |     1 |                   IO |
 +------------+-------+----------------------+
 
 

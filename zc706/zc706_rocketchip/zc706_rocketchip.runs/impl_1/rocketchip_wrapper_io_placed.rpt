@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-| Date         : Wed Nov 26 16:08:09 2014
+| Date         : Sat Nov 29 12:31:57 2014
 | Host         : a8 running 64-bit Ubuntu 14.04.1 LTS
 | Command      : report_io -file rocketchip_wrapper_io_placed.rpt
 | Design       : rocketchip_wrapper

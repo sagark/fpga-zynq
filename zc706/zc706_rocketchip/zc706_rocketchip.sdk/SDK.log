@@ -196,3 +196,29 @@
 16:41:32 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper_hw_platform_0/ps7_init.tcl into /FSBL/src/ps7_init.tcl.
 16:41:32 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
 16:51:39 ERROR : Unexpected error while parsing XMD response ￿: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+01:20:22 INFO  : Processing command line option -hwspec /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf.
+01:20:22 INFO  : Checking for hwspec changes in the project rocketchip_wrapper_hw_platform_0.
+01:20:31 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1417252683000,  Project:1417047108000
+01:20:31 INFO  : The hardware specification for project 'rocketchip_wrapper_hw_platform_0' is different from /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf.
+01:20:31 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf into /rocketchip_wrapper_hw_platform_0/system.hdf.
+01:20:43 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+01:20:52 INFO  : 
+01:20:54 INFO  : Updating hardware inferred compiler options for FSBL.
+01:20:54 INFO  : Clearing existing target manager status.
+01:20:56 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper_hw_platform_0/ps7_init.html into /FSBL/src/ps7_init.html.
+01:20:56 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper_hw_platform_0/ps7_init.tcl into /FSBL/src/ps7_init.tcl.
+01:20:56 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+01:25:47 ERROR : Unexpected error while parsing XMD response ￿: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+12:46:05 INFO  : Processing command line option -hwspec /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf.
+12:46:06 INFO  : Checking for hwspec changes in the project rocketchip_wrapper_hw_platform_0.
+12:46:08 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1417293316000,  Project:1417252683000
+12:46:08 INFO  : The hardware specification for project 'rocketchip_wrapper_hw_platform_0' is different from /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf.
+12:46:08 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper.hdf into /rocketchip_wrapper_hw_platform_0/system.hdf.
+12:46:16 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+12:46:25 INFO  : 
+12:46:26 INFO  : Updating hardware inferred compiler options for FSBL.
+12:46:26 INFO  : Clearing existing target manager status.
+12:46:27 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper_hw_platform_0/ps7_init.html into /FSBL/src/ps7_init.html.
+12:46:27 INFO  : Copied contents of /scratch/skarandikar/fpga-zynq/zc706/zc706_rocketchip/zc706_rocketchip.sdk/rocketchip_wrapper_hw_platform_0/ps7_init.tcl into /FSBL/src/ps7_init.tcl.
+12:46:27 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+12:46:45 ERROR : Unexpected error while parsing XMD response ￿: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
