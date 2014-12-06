@@ -35,7 +35,10 @@ module rocketchip_wrapper
     clk125_heartbeat,
     clk_200_p,
     clk_200_n,
-    GPIO_DIP_SW0);
+    GPIO_DIP_SW0,
+    GPIO_DIP_SW1,
+    GPIO_DIP_SW2,
+    GPIO_DIP_SW3);
 
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
@@ -72,6 +75,9 @@ module rocketchip_wrapper
   input clk_200_p;
   input clk_200_n;
   input GPIO_DIP_SW0;
+  input GPIO_DIP_SW1;
+  input GPIO_DIP_SW2;
+  input GPIO_DIP_SW3;
 
   wire FCLK_RESET0_N;
 
@@ -108,12 +114,28 @@ wire [1:0] s_axi_rresp;
 wire s_axi_rvalid;
 wire s_axi_rready;
 
-
-
-
-
-
-
+  wire debug_keyLen_valid;
+  wire [15:0] debug_keyLen_bits;
+  wire debug_keyData_valid;
+  wire [7:0] debug_keyData_bits;
+  wire debug_resultLen_valid;
+  wire [15:0] debug_resultLen_bits;
+  wire debug_resultData_valid;
+  wire [7:0] debug_resultData_bits;
+  wire debug_readready;
+  wire debug_rocc_inst_ready;
+  wire debug_rocc_inst_valid;
+  wire [6:0] debug_rocc_inst_bits_inst_funct;
+  wire [4:0] debug_rocc_inst_bits_inst_rs2;
+  wire [4:0] debug_rocc_inst_bits_inst_rs1;
+  wire  debug_rocc_inst_bits_inst_xd;
+  wire  debug_rocc_inst_bits_inst_xs1;
+  wire  debug_rocc_inst_bits_inst_xs2;
+  wire [4:0] debug_rocc_inst_bits_inst_rd;
+  wire [6:0] debug_rocc_inst_bits_inst_opcode;
+  wire [63:0] debug_rocc_inst_bits_rs1;
+  wire [63:0] debug_rocc_inst_bits_rs2;
+  
 
   wire [31:0]M_AXI_araddr;
   wire [1:0]M_AXI_arburst;
@@ -655,40 +677,70 @@ wire s_axi_rready;
       .io_temac_s_axi_rvalid(s_axi_rvalid),
       .io_temac_s_axi_rready(s_axi_rready),
         
-      .io_temac_sfp_tx_disable(sfp_tx_disable)
+      .io_temac_sfp_tx_disable(sfp_tx_disable),
+
+      .io_debug_keyLen_valid (debug_keyLen_valid),
+      .io_debug_keyLen_bits (debug_keyLen_bits),
+      .io_debug_keyData_valid (debug_keyData_valid),
+      .io_debug_keyData_bits (debug_keyData_bits),
+      .io_debug_resultLen_valid (debug_resultLen_valid),
+      .io_debug_resultLen_bits (debug_resultLen_bits),
+      .io_debug_resultData_valid (debug_resultData_valid),
+      .io_debug_resultData_bits (debug_resultData_bits),
+      .io_debug_readready (debug_readready),
+      .io_debug_rocc_inst_ready (debug_rocc_inst_ready),
+      .io_debug_rocc_inst_valid (debug_rocc_inst_valid),
+      .io_debug_rocc_inst_bits_inst_funct (debug_rocc_inst_bits_inst_funct),
+      .io_debug_rocc_inst_bits_inst_rs2 (debug_rocc_inst_bits_inst_rs2),
+      .io_debug_rocc_inst_bits_inst_rs1 (debug_rocc_inst_bits_inst_rs1),
+      .io_debug_rocc_inst_bits_inst_xd (debug_rocc_inst_bits_inst_xd),
+      .io_debug_rocc_inst_bits_inst_xs1 (debug_rocc_inst_bits_inst_xs1),
+      .io_debug_rocc_inst_bits_inst_xs2 (debug_rocc_inst_bits_inst_xs2),
+      .io_debug_rocc_inst_bits_inst_rd (debug_rocc_inst_bits_inst_rd),
+      .io_debug_rocc_inst_bits_inst_opcode (debug_rocc_inst_bits_inst_opcode),
+      .io_debug_rocc_inst_bits_rs1 (debug_rocc_inst_bits_rs1),
+      .io_debug_rocc_inst_bits_rs2 (debug_rocc_inst_bits_rs2)
   );
 
-/*
+
+  reg old_readready;
+  always @(posedge host_clk)
+    old_readready <= debug_readready;
+  wire readready_changed = debug_readready ^ old_readready;
+  wire trigger0 = (debug_keyLen_valid | debug_keyData_valid |
+                   debug_resultLen_valid | debug_resultData_valid);
+  wire trigger1 = debug_rocc_inst_ready;
+  wire trigger2 = debug_rocc_inst_valid;
+  wire trigger3 = readready_changed;
+  wire ila_trigger = (trigger0 & GPIO_DIP_SW0) | (trigger1 & GPIO_DIP_SW1) |
+                     (trigger2 & GPIO_DIP_SW2) | (trigger3 & GPIO_DIP_SW3);
 ila_0 main_ila (
     .clk(host_clk),
-    .trig_in(s_axi_awvalid | tx_axis_fifo_tvalid),
+    .trig_in(ila_trigger),
     .trig_in_ack(),
-    .probe0(rx_axis_fifo_tdata),
-    .probe1(rx_axis_fifo_tvalid),
-    .probe2(rx_axis_fifo_tready),
-    .probe3(rx_axis_fifo_tlast),
-    .probe4(tx_axis_fifo_tdata),
-    .probe5(tx_axis_fifo_tvalid),
-    .probe6(tx_axis_fifo_tready),
-    .probe7(tx_axis_fifo_tlast),
-    .probe8(s_axi_awaddr),
-    .probe9(s_axi_awvalid),
-    .probe10(s_axi_awready),
-    .probe11(s_axi_wdata),
-    .probe12(s_axi_wvalid),
-    .probe13(s_axi_wready),
-    .probe14(s_axi_bresp),
-    .probe15(s_axi_bvalid),
-    .probe16(s_axi_bready),
-    .probe17(s_axi_araddr),
-    .probe18(s_axi_arvalid),
-    .probe19(s_axi_arready),
-    .probe20(s_axi_rdata),
-    .probe21(s_axi_rresp),
-    .probe22(s_axi_rvalid),
-    .probe23(s_axi_rready)
+    .probe0 (debug_keyLen_valid),
+    .probe1 (debug_keyLen_bits),
+    .probe2 (debug_keyData_valid),
+    .probe3 (debug_keyData_bits),
+    .probe4 (debug_resultLen_valid),
+    .probe5 (debug_resultLen_bits),
+    .probe6 (debug_resultData_valid),
+    .probe7 (debug_resultData_bits),
+    .probe8 (debug_readready),
+    .probe9 (debug_rocc_inst_ready),
+    .probe10 (debug_rocc_inst_valid),
+    .probe11 (debug_rocc_inst_bits_inst_funct),
+    .probe12 (debug_rocc_inst_bits_inst_rs2),
+    .probe13 (debug_rocc_inst_bits_inst_rs1),
+    .probe14 (debug_rocc_inst_bits_inst_xd),
+    .probe15 (debug_rocc_inst_bits_inst_xs1),
+    .probe16 (debug_rocc_inst_bits_inst_xs2),
+    .probe17 (debug_rocc_inst_bits_inst_rd),
+    .probe18 (debug_rocc_inst_bits_inst_opcode),
+    .probe19 (debug_rocc_inst_bits_rs1),
+    .probe20 (debug_rocc_inst_bits_rs2)
 );
-*/
+
   BUFG  bufg_host_clk (.I(host_clk_i), .O(host_clk));
 
   MMCME2_BASE #(

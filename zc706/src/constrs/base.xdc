@@ -19,6 +19,12 @@ create_clock -add -name gtrefclk -period 8.000 [get_ports sfp_125_clk_p]
 
 set_property PACKAGE_PIN AB17 [get_ports GPIO_DIP_SW0]
 set_property IOSTANDARD LVCMOS25 [get_ports GPIO_DIP_SW0]
+set_property PACKAGE_PIN AC16 [get_ports GPIO_DIP_SW1]
+set_property IOSTANDARD LVCMOS25 [get_ports GPIO_DIP_SW1]
+set_property PACKAGE_PIN AC17 [get_ports GPIO_DIP_SW2]
+set_property IOSTANDARD LVCMOS25 [get_ports GPIO_DIP_SW2]
+set_property PACKAGE_PIN AJ13 [get_ports GPIO_DIP_SW3]
+set_property IOSTANDARD LVCMOS25 [get_ports GPIO_DIP_SW3]
 
 #set_property PACKAGE_PIN AK25 [get_ports SW_BUTTON_LEFT]
 #set_property IOSTANDARD LVCMOS25 [get_ports SW_BUTTON_LEFT]
