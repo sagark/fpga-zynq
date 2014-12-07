@@ -123,18 +123,27 @@ wire s_axi_rready;
   wire debug_resultData_valid;
   wire [7:0] debug_resultData_bits;
   wire debug_readready;
-  wire debug_rocc_inst_ready;
-  wire debug_rocc_inst_valid;
-  wire [6:0] debug_rocc_inst_bits_inst_funct;
-  wire [4:0] debug_rocc_inst_bits_inst_rs2;
-  wire [4:0] debug_rocc_inst_bits_inst_rs1;
-  wire  debug_rocc_inst_bits_inst_xd;
-  wire  debug_rocc_inst_bits_inst_xs1;
-  wire  debug_rocc_inst_bits_inst_xs2;
-  wire [4:0] debug_rocc_inst_bits_inst_rd;
-  wire [6:0] debug_rocc_inst_bits_inst_opcode;
-  wire [63:0] debug_rocc_inst_bits_rs1;
-  wire [63:0] debug_rocc_inst_bits_rs2;
+  wire debug_rocc_cmd_ready;
+  wire debug_rocc_cmd_valid;
+  wire [6:0] debug_rocc_cmd_bits_inst_funct;
+  wire [4:0] debug_rocc_cmd_bits_inst_rs2;
+  wire [4:0] debug_rocc_cmd_bits_inst_rs1;
+  wire  debug_rocc_cmd_bits_inst_xd;
+  wire  debug_rocc_cmd_bits_inst_xs1;
+  wire  debug_rocc_cmd_bits_inst_xs2;
+  wire [4:0] debug_rocc_cmd_bits_inst_rd;
+  wire [6:0] debug_rocc_cmd_bits_inst_opcode;
+  wire [63:0] debug_rocc_cmd_bits_rs1;
+  wire [63:0] debug_rocc_cmd_bits_rs2;
+  wire  debug_rocc_resp_ready;
+  wire  debug_rocc_resp_valid;
+  wire [4:0] debug_rocc_resp_bits_rd;
+  wire [63:0] debug_rocc_resp_bits_data;
+  wire  debug_rocc_mem_req_ready;
+  wire  debug_rocc_mem_req_valid;
+  wire [42:0] debug_rocc_mem_req_bits;
+  wire  debug_rocc_mem_resp_valid;
+  wire [63:0] debug_rocc_mem_resp_bits;
   
 
   wire [31:0]M_AXI_araddr;
@@ -688,18 +697,27 @@ wire s_axi_rready;
       .io_debug_resultData_valid (debug_resultData_valid),
       .io_debug_resultData_bits (debug_resultData_bits),
       .io_debug_readready (debug_readready),
-      .io_debug_rocc_inst_ready (debug_rocc_inst_ready),
-      .io_debug_rocc_inst_valid (debug_rocc_inst_valid),
-      .io_debug_rocc_inst_bits_inst_funct (debug_rocc_inst_bits_inst_funct),
-      .io_debug_rocc_inst_bits_inst_rs2 (debug_rocc_inst_bits_inst_rs2),
-      .io_debug_rocc_inst_bits_inst_rs1 (debug_rocc_inst_bits_inst_rs1),
-      .io_debug_rocc_inst_bits_inst_xd (debug_rocc_inst_bits_inst_xd),
-      .io_debug_rocc_inst_bits_inst_xs1 (debug_rocc_inst_bits_inst_xs1),
-      .io_debug_rocc_inst_bits_inst_xs2 (debug_rocc_inst_bits_inst_xs2),
-      .io_debug_rocc_inst_bits_inst_rd (debug_rocc_inst_bits_inst_rd),
-      .io_debug_rocc_inst_bits_inst_opcode (debug_rocc_inst_bits_inst_opcode),
-      .io_debug_rocc_inst_bits_rs1 (debug_rocc_inst_bits_rs1),
-      .io_debug_rocc_inst_bits_rs2 (debug_rocc_inst_bits_rs2)
+      .io_debug_rocc_cmd_ready (debug_rocc_cmd_ready),
+      .io_debug_rocc_cmd_valid (debug_rocc_cmd_valid),
+      .io_debug_rocc_cmd_bits_inst_funct (debug_rocc_cmd_bits_inst_funct),
+      .io_debug_rocc_cmd_bits_inst_rs2 (debug_rocc_cmd_bits_inst_rs2),
+      .io_debug_rocc_cmd_bits_inst_rs1 (debug_rocc_cmd_bits_inst_rs1),
+      .io_debug_rocc_cmd_bits_inst_xd (debug_rocc_cmd_bits_inst_xd),
+      .io_debug_rocc_cmd_bits_inst_xs1 (debug_rocc_cmd_bits_inst_xs1),
+      .io_debug_rocc_cmd_bits_inst_xs2 (debug_rocc_cmd_bits_inst_xs2),
+      .io_debug_rocc_cmd_bits_inst_rd (debug_rocc_cmd_bits_inst_rd),
+      .io_debug_rocc_cmd_bits_inst_opcode (debug_rocc_cmd_bits_inst_opcode),
+      .io_debug_rocc_cmd_bits_rs1 (debug_rocc_cmd_bits_rs1),
+      .io_debug_rocc_cmd_bits_rs2 (debug_rocc_cmd_bits_rs2),
+      .io_debug_rocc_resp_ready (debug_rocc_resp_ready),
+      .io_debug_rocc_resp_valid (debug_rocc_resp_valid),
+      .io_debug_rocc_resp_bits_rd (debug_rocc_resp_bits_rd),
+      .io_debug_rocc_resp_bits_data (debug_rocc_resp_bits_data),
+      .io_debug_rocc_mem_req_ready (debug_rocc_mem_req_ready),
+      .io_debug_rocc_mem_req_valid (debug_rocc_mem_req_valid),
+      .io_debug_rocc_mem_req_bits (debug_rocc_mem_req_bits),
+      .io_debug_rocc_mem_resp_valid (debug_rocc_mem_resp_valid),
+      .io_debug_rocc_mem_resp_bits (debug_rocc_mem_resp_bits)
   );
 
 
@@ -709,8 +727,8 @@ wire s_axi_rready;
   wire readready_changed = debug_readready ^ old_readready;
   wire trigger0 = (debug_keyLen_valid | debug_keyData_valid |
                    debug_resultLen_valid | debug_resultData_valid);
-  wire trigger1 = debug_rocc_inst_ready;
-  wire trigger2 = debug_rocc_inst_valid;
+  wire trigger1 = debug_rocc_mem_req_valid | debug_rocc_mem_resp_valid;
+  wire trigger2 = debug_rocc_cmd_valid | debug_rocc_resp_valid;
   wire trigger3 = readready_changed;
   wire ila_trigger = (trigger0 & GPIO_DIP_SW0) | (trigger1 & GPIO_DIP_SW1) |
                      (trigger2 & GPIO_DIP_SW2) | (trigger3 & GPIO_DIP_SW3);
@@ -727,18 +745,27 @@ ila_0 main_ila (
     .probe6 (debug_resultData_valid),
     .probe7 (debug_resultData_bits),
     .probe8 (debug_readready),
-    .probe9 (debug_rocc_inst_ready),
-    .probe10 (debug_rocc_inst_valid),
-    .probe11 (debug_rocc_inst_bits_inst_funct),
-    .probe12 (debug_rocc_inst_bits_inst_rs2),
-    .probe13 (debug_rocc_inst_bits_inst_rs1),
-    .probe14 (debug_rocc_inst_bits_inst_xd),
-    .probe15 (debug_rocc_inst_bits_inst_xs1),
-    .probe16 (debug_rocc_inst_bits_inst_xs2),
-    .probe17 (debug_rocc_inst_bits_inst_rd),
-    .probe18 (debug_rocc_inst_bits_inst_opcode),
-    .probe19 (debug_rocc_inst_bits_rs1),
-    .probe20 (debug_rocc_inst_bits_rs2)
+    .probe9 (debug_rocc_cmd_ready),
+    .probe10 (debug_rocc_cmd_valid),
+    .probe11 (debug_rocc_cmd_bits_inst_funct),
+    .probe12 (debug_rocc_cmd_bits_inst_rs2),
+    .probe13 (debug_rocc_cmd_bits_inst_rs1),
+    .probe14 (debug_rocc_cmd_bits_inst_xd),
+    .probe15 (debug_rocc_cmd_bits_inst_xs1),
+    .probe16 (debug_rocc_cmd_bits_inst_xs2),
+    .probe17 (debug_rocc_cmd_bits_inst_rd),
+    .probe18 (debug_rocc_cmd_bits_inst_opcode),
+    .probe19 (debug_rocc_cmd_bits_rs1),
+    .probe20 (debug_rocc_cmd_bits_rs2),
+    .probe21 (debug_rocc_resp_ready),
+    .probe22 (debug_rocc_resp_valid),
+    .probe23 (debug_rocc_resp_bits_rd),
+    .probe24 (debug_rocc_resp_bits_data),
+    .probe25 (debug_rocc_mem_req_ready),
+    .probe26 (debug_rocc_mem_req_valid),
+    .probe27 (debug_rocc_mem_req_bits),
+    .probe28 (debug_rocc_mem_resp_valid),
+    .probe29 (debug_rocc_mem_resp_bits)
 );
 
   BUFG  bufg_host_clk (.I(host_clk_i), .O(host_clk));
