@@ -759,13 +759,13 @@ ila_0 main_ila (
     .probe20 (debug_rocc_cmd_bits_rs2),
     .probe21 (debug_rocc_resp_ready),
     .probe22 (debug_rocc_resp_valid),
-    .probe23 (debug_rocc_resp_bits_rd),
-    .probe24 (debug_rocc_resp_bits_data),
+    .probe23 (debug_rocc_resp_bits_rd)
+/*    .probe24 (debug_rocc_resp_bits_data),
     .probe25 (debug_rocc_mem_req_ready),
     .probe26 (debug_rocc_mem_req_valid),
     .probe27 (debug_rocc_mem_req_bits),
     .probe28 (debug_rocc_mem_resp_valid),
-    .probe29 (debug_rocc_mem_resp_bits)
+    .probe29 (debug_rocc_mem_resp_bits)*/
 );
 
   BUFG  bufg_host_clk (.I(host_clk_i), .O(host_clk));
